@@ -89,6 +89,15 @@ bindsym --release $mod+Shift+l exec rofi -show run
 # Capture a screenshot
 bindsym $mod+Shift+s exec scrot
 
+# Increase the volume
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+
+# Decrease the volume
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+
+# Toggle mute/unmute of the volume
+bindsym XF86AudioMute exec amixer set Master toggle
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
