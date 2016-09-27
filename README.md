@@ -6,4 +6,4 @@ Depends on XFCE Terminal, Rofi, and i3-gaps.
 <h2>To install</h2>
 <code>git clone https://github.com/clyde80/i3-configuration</code><br>
 <code>cd i3-configuration</code><br>
-<code>./install.sh</code>
+<code>sudo ./install.sh</code>
