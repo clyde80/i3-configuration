@@ -7,3 +7,6 @@ Depends on XFCE Terminal, Rofi, and i3-gaps.
 <code>git clone https://github.com/clyde80/i3-configuration</code><br>
 <code>cd i3-configuration</code><br>
 <code>sudo ./install.sh</code>
+
+<h2>Other themes</h2>
+https://github.com/clyde80/i3-configuration/releases
