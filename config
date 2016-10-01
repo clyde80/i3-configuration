@@ -84,7 +84,7 @@ bindsym $mod+a focus parent
 bindsym --release $mod+l exec lock -p
 
 # start rofi
-bindsym --release $mod+Shift+l exec rofi -show run
+bindsym --release $mod+Shift+l exec runrofi.sh
 
 # Capture a screenshot
 bindsym $mod+Shift+s exec scrot
@@ -159,6 +159,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        font pango: Inconsolata 10
         colors {
         	background #152a2f
         	separator #FEDBC7
