@@ -1,7 +1,7 @@
 # i3-configuration
 My i3 configuration files
 
-Current Config Pictures: http://imgur.com/gallery/8R1La
+Current Config Pictures: http://imgur.com/gallery/LPKvU
 
 Depends on XFCE Terminal, Rofi, and i3-gaps.
 
