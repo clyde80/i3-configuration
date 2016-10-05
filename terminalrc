@@ -19,9 +19,9 @@ BackgroundDarkness=0.800000
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 FontName=Inconsolata 12
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorPalette=#363635353737;#e9e9f0f0e0e0;#fcfca1a16464;#fcfca1a16464;#f5f5c5c5b2b2;#fcfca1a16464;#fcfca1a16464;#aaaaaaaaaaaa;#9a9a9a9a9a9a;#e9e9f0f0e0e0;#e9e9f0f0e0e0;#efefefef2d2d;#fcfca1a16464;#f5f5c5c5b2b2;#f5f5c5c5b2b2;#ffffffffffff
-ColorForeground=#E9F0E0
-ColorBackground=#15152a2a2f2f
-ColorCursor=#FEDBC7
-TabActivityColor=#EB975E
+ColorPalette=#1f1f1f1f1f1f;#ffff5d3d56de;#6464fcfc8940;#0000a7a7ffff;#0000a747ffff;#fcfc6464ea11;#0000f176ffff;#cc62cc62cc62;#9a9a9a9a9a9a;#ffffb129adc1;#0000ffffaa2f;#ffffffff3bdf;#0000da04ffff;#ffffc1a8f189;#c914fffffb22;#ffffffffffff
+ColorForeground=#ed7aed7aed7a
+ColorBackground=#1f1f1f1f1f1f
+ColorCursor=#f083f083f083
+TabActivityColor=#1e1e1e1e1e1e
 
