@@ -153,6 +153,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+bindsym $mod+Shift+b "borders"
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -161,15 +162,17 @@ bar {
         status_command i3status
         font pango: Inconsolata 10
         colors {
-        	background #1F1F1F
-        	separator #FFFFFF
-        	focused_workspace #1F1F1F #1F1F1F #FFFFFF
-        	active_workspace #1F1F1F #1F1F1F #FFFFFF
-        	inactive_workspace #1F1F1F #1F1F1F #AAAAAA
-        	urgent_workspace #1F1F1F #1F1F1F #fc8383
+        	background #FEFEFE
+        	statusline #000000
+        	separator #000000
+        	focused_workspace #FEFEFE #FEFEFE #000000
+        	active_workspace #FEFEFE #FEFEFE #000000
+        	inactive_workspace #FEFEFE #FEFEFE #AAAAAA
+        	urgent_workspace #FC050D #FC050D #FFFFFF
         }
 }
 
 for_window [class="^.*"] border pixel 0
-gaps inner 15
-gaps outer 15
+gaps outer 10
+gaps inner 10
+exec --no-startup-id synclient TapButton1=1
