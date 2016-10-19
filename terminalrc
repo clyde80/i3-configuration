@@ -18,10 +18,10 @@ MiscHighlightUrls=TRUE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 FontName=Inconsolata 12
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorForeground=#000000
-BackgroundDarkness=0.600000
-ColorBackground=#FEFEFE
-ColorCursor=#FBAF3F
-ColorPalette=#000000000000;#989811111111;#fbfbafaf3f3f;#ffff8b8b5f5f;#4d4d5b5b9797;#c2c22626aeae;#00000b0bb8b8;#cccccccccccc;#424241415353;#ffff54545454;#fafa4a4ae8e8;#ffffcccc3333;#9494a3a3e4e4;#ffff4d4dd7d7;#4b4b5e5ec7c7;#ffffffffffff
-TabActivityColor=#FBAF3F
+ColorForeground=#ffffffffffff
+BackgroundDarkness=1.000000
+ColorBackground=#070720201d1d
+ColorCursor=#ffff00003131
+ColorPalette=#000000000000;#ffff00003178;#ffffffffffff;#d2d203032b2b;#ffff00003131;#9fc200008b47;#ffff00003131;#cccccccccccc;#ffffffffffff;#ffff54545454;#ffff00003131;#ffffcccc3333;#ffff00003131;#ffff4d4dd7d7;#ffff54545454;#ffffffffffff
+TabActivityColor=#ffff00003131
 
