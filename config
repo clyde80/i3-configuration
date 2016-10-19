@@ -162,13 +162,13 @@ bar {
         status_command i3status
         font pango: Inconsolata 10
         colors {
-        	background #FEFEFE
+        	background #FFFFFF
         	statusline #000000
         	separator #000000
-        	focused_workspace #FEFEFE #FEFEFE #000000
-        	active_workspace #FEFEFE #FEFEFE #000000
-        	inactive_workspace #FEFEFE #FEFEFE #AAAAAA
-        	urgent_workspace #FC050D #FC050D #FFFFFF
+        	focused_workspace #FFFFFF #FFFFFF #000000
+        	active_workspace #FFFFFF #FFFFFF #000000
+        	inactive_workspace #FFFFFF #FFFFFF #AAAAAA
+        	urgent_workspace #FF0031 #FF0031 #FFFFFF
         }
 }
 
