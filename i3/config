@@ -80,14 +80,14 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# start lock screen application
-bindsym --release $mod+l exec lock -p
+# Lock screen
+bindsym --release $mod+l exec lock -f Inconsolata -p
 
 # start rofi
 bindsym --release $mod+Shift+l exec runrofi.sh
 
 # Capture a screenshot
-bindsym $mod+Shift+s exec scrot
+bindsym --release Print exec scrot
 
 # Increase the volume
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
@@ -97,6 +97,21 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 
 # Toggle mute/unmute of the volume
 bindsym XF86AudioMute exec amixer set Master toggle
+
+# Increase screen brightness by 5
+bindsym XF86MonBrightnessUp exec light -A 5
+
+# Decrease screen brightness by 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# Toggle pause/play on the song that is currently paused or playing
+bindsym XF86AudioPlay exec togglepauseplay
+
+# Switch to the next song
+bindsym XF86AudioNext exec cmus-remote -n
+
+# Switch to the previous song
+bindsym XF86AudioPrev exec cmus-remote -r
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -173,6 +188,6 @@ bar {
 }
 
 for_window [class="^.*"] border pixel 0
-gaps outer 10
-gaps inner 10
+gaps outer 5
+gaps inner 5
 exec --no-startup-id synclient TapButton1=1
