@@ -1,10 +1,13 @@
 <h1>How to add theme to firefox</h1>
 
+firefox-stylish-v2.css includes horizontal and vertical scroll bars and fixes the alignment in the URL bar.<br>
+firefox-stylish.css is the original (use firefox-stylish-v2.css for more user friendly environment).
+
 <ol>
 <li>Download and install the Stylish extension at https://addons.mozilla.org/en-US/firefox/addon/stylish/?src=search.</li>
 <li>Copy the firefox-config folder to your configuration directory (or wherever you want).</li>
 <li>Create a blank style with Stylish (click stylish button on toolbar and click create new blank style).</li>
-<li>Copy and paste the contents of firefox-stylish.css into the new style.</li>
+<li>Copy and paste the contents of firefox-stylish.css or firefox-stylish-v2.css into the new style.</li>
 <li>Type a name for the style and save it.</li>
 </ol>
 
