@@ -2,9 +2,10 @@ i3conf.v# is the tag of the release.
 
 Logging started on November 08, 2016
 
-Current Config in Main Branch (Orange Red and Black)
+Changes since Japan release (https://github.com/clyde80/i3-configuration/releases)
+    - Date: November 08, 2016
 
-1. Changed main colors to orange and red. 
+1. Changed main colors to orange and red.
 2. Changed background image to mountains.
 3. Added new terminal theme (Mountains.theme).
 4. Added icons with Font-Awesome to i3status bar for wifi, disk space, volume, and battery.
