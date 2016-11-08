@@ -9,8 +9,8 @@
             }
 
             body {
-                background-color: #07201D;
-                color: #FF0031;
+                background-color: #0E1011;
+                color: #FF9900;
                 font: "Inconsolata";
                 text-align: center;
             }
@@ -23,6 +23,13 @@
 
             a {
                 text-decoration: none;
+                color: #FF9900;
+                -webkit-transition: font-size 0.25s, color 0.25s;
+                transition: font-size 0.25s, color 0.25;
+            }
+
+            a:hover {
+                font-size: 25px;
                 color: #FF0031;
             }
 
@@ -50,18 +57,26 @@
             }
 
             input[type=text] {
-                width: 500px;
+                width: 200px;
                 padding: 5px;
                 padding-left: 40px;
                 margin: 15px 0;
+                font-family: Inconsolata;
                 color: #FAFAFA;
-                background-color: #07201d;
+                background-color: #0E1011;
                 background-image: url("searchicon.png");
-                background-position: 5px 5px;
+                background-position: 3px 3px;
                 background-repeat: no-repeat;
                 border-radius: 5px;
-                border: 2px solid #58fcaa;
+                border: 2px solid #FF9900;
                 box-sizing: border-box;
+                -webkit-transition: width 0.5s, border-color 0.5s;
+                transition: width 0.5s, border-color 0.5s;
+            }
+
+            input[type=text]:hover, input[type=text]:focus {
+                width: 500px;
+                border-color: #FF0031;
             }
 
         </style>
@@ -74,7 +89,7 @@
             <h1>Cat Homepage</h1>
             <script type="text/javascript">
                 function submit() {
-                    window.location.href = "https://www.duckduckgo.com/?q=" + document.getElementById('search_field').value;
+                    window.location.href = "https://www.google.com/search?q=" + document.getElementById('search_field').value;
                 }
             </script>
             <form action="javascript: submit();">
