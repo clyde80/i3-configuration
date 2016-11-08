@@ -1,0 +1,7 @@
+[Scheme]
+Name=Mountains
+ColorForeground=#ff9900
+ColorBackground=#0e1011
+TabActivityColor=#ff0031
+ColorCursor=#ff0031
+ColorPalette=rgb(0,0,0);rgb(255,0,49);rgb(235,237,237);rgb(210,3,43);rgb(255,0,49);rgb(159,0,139);rgb(255,0,49);rgb(204,204,204);rgb(255,255,255);rgb(255,84,84);rgb(255,0,49);rgb(210,3,43);rgb(255,0,49);rgb(255,77,215);rgb(255,84,84);rgb(255,255,255)
