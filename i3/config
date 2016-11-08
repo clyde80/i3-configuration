@@ -90,10 +90,10 @@ bindsym --release $mod+Shift+l exec runrofi.sh
 bindsym --release Print exec scrot
 
 # Increase the volume
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioRaiseVolume exec raisevolume
 
 # Decrease the volume
-bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioLowerVolume exec lowervolume
 
 # Toggle mute/unmute of the volume
 bindsym XF86AudioMute exec amixer set Master toggle
@@ -175,7 +175,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        font pango: Inconsolata 10
+        font pango: Inconsolata, FontAwesome 10
         colors {
         	background #FFFFFF
         	statusline #000000
@@ -191,3 +191,4 @@ for_window [class="^.*"] border pixel 0
 gaps outer 5
 gaps inner 5
 exec --no-startup-id synclient TapButton1=1
+exec --no-startup-id compton -b
