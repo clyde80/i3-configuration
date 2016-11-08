@@ -1,9 +1,9 @@
 # i3-configuration
 My i3 configuration files
 
-Current config pictures: (need to be uploaded)
+Current config pictures: http://imgur.com/a/q7EqD
 
-Current Firefox config pictures: (need to be uploaded)
+Current Firefox config pictures: http://imgur.com/a/q7EqD
 
 Check the CHANGELOG for recent changes
 
