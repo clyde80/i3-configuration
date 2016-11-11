@@ -2,7 +2,19 @@ i3conf.v# is the tag of the release.
 
 Logging started on November 08, 2016
 
-Changes since Japan release (https://github.com/clyde80/i3-configuration/releases)
+Changes in Red and Yellow theme (https://github.com/clyde80/i3-configuration/releases)
+    - Date: November 09, 2016
+
+1. Changed main colors to yellow and red.
+2. Changed some colors in CMUS
+3. Added new terminal theme (red-and-yellow.theme)
+4. Changed colors in i3status bar.
+5. Changed main colors of Firefox homepage.
+6. Added red-and-yellow.css (new stylish css file).
+
+--------------    
+
+Changes in Red, Orange and Black theme (https://github.com/clyde80/i3-configuration/releases)
     - Date: November 08, 2016
 
 1. Changed main colors to orange and red.
