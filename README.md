@@ -3,9 +3,7 @@ My i3 configuration files
 
 Current Theme: Red and Yellow
 
-Current config pictures: (need to be uploaded)
-
-Current Firefox config pictures: (need to be uploaded)
+Current config pictures: http://imgur.com/a/HkvsX
 
 Check the CHANGELOG for recent changes
 
