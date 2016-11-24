@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Sets the display for a dual monitor setup on my computer
+
+print_help(){
+    echo "Sets the output display for a multimonitor setup"
+    echo "Usage: smmd [-rs]"
+    echo
+    echo "-r    --reset     Resets the display"
+    echo "-s    --set       Sets the multi-monitor display"
+    echo
+    echo "Type 'smmd -h' to display this help message"
+}
+
+case $1 in
+    "-h"|"--help")
+        print_help
+        exit 0;;
+    "-r"|"--reset")
+        xrandr --output LVDS-1 --mode 1366x768 --primary
+        xrandr --output HDMI-1 --off
+        exit 0;;
+    "-s"|"--set")
+        xrandr --output HDMI-1 --auto --left-of LVDS-1
+        exit 0;;
+    *)
+        echo "Option $1 not found"
+        print_help
+        exit 1;;
+esac

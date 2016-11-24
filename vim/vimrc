@@ -21,4 +21,4 @@ set tabstop=4
 set tabstop=4
 set expandtab
 set number
-colo red_and_yellow
+colo usa

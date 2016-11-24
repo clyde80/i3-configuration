@@ -2,6 +2,24 @@ i3conf.v# is the tag of the release.
 
 Logging started on November 08, 2016
 
+Changes in USA theme
+    - Date: November 23, 2016
+
+1. Changed main colors to red white and blue.
+2. Changed colors in CMUS.
+3. Added new terminal theme (USA.theme)
+4. Changed colors in i3status bar.
+5. Changed look and style of Firefox homepage.
+    - Added seperate file for stying (stylesheet.css)
+        - This file may need to be modified based on device because it is hard coded to
+          my device.
+6. Added new stylish CSS file (USA.css)
+    - Fixed a few spots on the sheet (colors where colors aren't supposed to be)
+7. Added new vim colorscheme (USA.vim)
+8. Customized colors in top (process manager).
+
+--------------    
+
 Changes in Red and Yellow theme (https://github.com/clyde80/i3-configuration/releases)
     - Date: November 09, 2016
 

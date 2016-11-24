@@ -1,0 +1,12 @@
+#!/bin/bash
+status=$(cmus-remote -Q)
+case $status in
+    *"playing"*)
+        cmus-remote -u
+        exit;;
+    *"paused"*)
+        cmus-remote -p
+        exit;;
+    *)
+        exit;;
+esac
