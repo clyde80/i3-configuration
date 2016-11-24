@@ -17,6 +17,7 @@ Changes in USA theme
     - Fixed a few spots on the sheet (colors where colors aren't supposed to be)
 7. Added new vim colorscheme (USA.vim)
 8. Customized colors in top (process manager).
+9. Added custom backlight script that shows a notification displaying the screen brightness.
 
 --------------    
 
