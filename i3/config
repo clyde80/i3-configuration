@@ -99,10 +99,10 @@ bindsym XF86AudioLowerVolume exec vol -l -b
 bindsym XF86AudioMute exec vol -m -b
 
 # Increase screen brightness by 5
-bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessUp exec backlight -u 5
 
 # Decrease screen brightness by 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessDown exec backlight -d 5
 
 # Toggle pause/play on the song that is currently paused or playing
 bindsym XF86AudioPlay exec togglepauseplay
