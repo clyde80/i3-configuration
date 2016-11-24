@@ -20,18 +20,18 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #0F1013; --bg-dark: #0F1013;
-    --fg-light: #FF005E; --fg-dark: #FDFDFE;
+    --bg-light: #040708; --bg-dark: #040708;
+    --fg-light: #BE0E29; --fg-dark: #FFFFFF;
     --tab-triangle-correction: -1px;
     --tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: 2px; --tab-overlap: -5px;
-    --tab-fonts: "Inconsolata","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
+    --tab-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
     --tab-text-align: left; /* left | center | right */ /* Align where the text on a tab is. */
     --tab-triangle: none;  /* block | none */ 
 
     /* URL VARIABLES */
-    --url-background: #0F1013; --url-color: var(--fg-dark);
+    --url-background: #040708; --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 6px;
-    --url-fonts: "Inconsolata", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 11pt;
+    --url-fonts: "Raleway", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
     --url-text-align: left; /* left | center | right */ /* Align where the text in the URL is. */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
@@ -126,14 +126,15 @@
     #back-button, #forward-button { display: block !important; }
     #back-button::before, #forward-button::before {
         display: inline-block !important; position: absolute !important;
-        width: var(--url-height) !important; height: var(--url-height) !important; top: 0 !important;
+        width: var(--url-height) !important; height: var(--url-height) !important; top: -1px !important;
         text-align: center !important; line-height: var(--url-height) !important;
         padding-top: 3px !important;
+        background: var(--url-background) !important;
     }
     
-    #back-button::before { 
+    #back-button::before {
         content: "<" !important; 
-        left: 8px !important; 
+        left: 0px !important; 
     }
     
     #forward-button::before {
@@ -349,7 +350,7 @@
     scrollbar[orient='vertical'] > slider { background: #FFFFFF !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #000000 !important; border: 0 !important; width: 100% !important;
+        background: #040708 !important; border: 0 !important; width: 100% !important;
     }
     
     /* #FFFFFF is the background color for the horizontal scrollbar.*/
@@ -357,7 +358,7 @@
     scrollbar[orient='horizontal'] > slider { background: #FFFFFF !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #000000 !important; border: 0 !important; height: 100% !important;
+        background: #040708 !important; border: 0 !important; height: 100% !important;
     }
     
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }
