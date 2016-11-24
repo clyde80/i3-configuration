@@ -3,7 +3,7 @@ My i3 configuration files
 
 Current Theme: USA
 
-Current config pictures: Need to be uploaded.
+Current config pictures: http://imgur.com/a/1hVxC
 
 Check the CHANGELOG for recent changes
 
