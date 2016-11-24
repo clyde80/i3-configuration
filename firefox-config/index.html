@@ -1,122 +1,58 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
     <head>
         <title>Homepage</title>
-        <link rel="icon" href="caticon.png" type="image/icon">
-        <style>
-            * {
-                margin: 0px;
-            }
-
-            body {
-                background-color: #0F1013;
-                color: #FFFF5F;
-                font: "Inconsolata";
-                text-align: center;
-            }
-
-            h1 {
-                font: "Inconsolata";
-                color: #FFFF5F;
-                text-align: center;
-            }
-
-            a {
-                text-decoration: none;
-                color: #FFFF5F;
-                -webkit-transition: font-size 0.25s, color 0.25s;
-                transition: font-size 0.25s, color 0.25;
-            }
-
-            a:hover {
-                font-size: 25px;
-                color: #FF005E;
-            }
-
-            img {
-                width: 105px;
-                height: 105px;
-                padding: 15px;
-                margin-bottom: 15px;
-                border: 2px solid #FFFF5F;
-                border-radius: 5px;
-            }
-
-            #websites {
-                margin-top: 10%;
-            }
-
-            #websites div, table {
-                display: inline-block;
-                text-align: left;
-            }
-
-            td {
-                padding: 6px 20px;
-                text-align: center;
-            }
-
-            input[type=text] {
-                width: 200px;
-                padding: 5px;
-                padding-left: 40px;
-                margin: 15px 0;
-                font-family: Inconsolata;
-                color: #FAFAFA;
-                background-color: #0F1013;
-                background-image: url("searchicon.png");
-                background-position: 3px 3px;
-                background-repeat: no-repeat;
-                border-radius: 5px;
-                border: 2px solid #FFFF5F;
-                box-sizing: border-box;
-                -webkit-transition: width 0.5s, border-color 0.5s;
-                transition: width 0.5s, border-color 0.5s;
-            }
-
-            input[type=text]:hover, input[type=text]:focus {
-                width: 500px;
-                border-color: #FF005E;
-            }
-
-        </style>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script type="text/javascript">
+            function goToAddress(url) {
+                window.location.href = url;
+            }
+        </script>
+        <link rel="icon" href="icon.jpg" type="image/icon">
     </head>
     <body>
-        <div id="websites">            
-            <img src="cat.png">
-            <h1>Cat Homepage</h1>
-            <script type="text/javascript">
-                function submit() {
-                    window.location.href = "https://www.google.com/search?q=" + document.getElementById('search_field').value;
-                }
-            </script>
-            <form action="javascript: submit();">
-                <input id="search_field" type="text" name"search_term" placeholder="Search . . .">
-            </form>
-            <table>
-                <tr>
-                    <td><a href="https://www.reddit.com">Reddit</a></td>
-                    <td><a href="https://www.github.com">Github</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.reddit.com/r/unixporn">r/unixporn</a></td>
-                    <td><a href="https://wiki.archlinux.org">Arch Linux Wiki</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.reddit.com/r/linuxcirclejerk">r/linuxcirclejerk</a></td>
-                    <td><a href="https://aur.archlinux.org">AUR</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.reddit.com/r/linux">r/linux</a></td>
-                    <td><a href="https://www.archlinux.org/packages">Arch Linux Packages</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.stackoverflow.com">Stack Overflow</a></td>
-                    <td><a href="https://www.youtube.com">YouTube</a></td>
-                </tr>
-            </div>
+        <h1 id="title">Homepage</h1>
+        <script type="text/javascript">
+            function submit() {
+                window.location.href = "https://www.google.com/search?q=" + document.getElementById('search_field').value;
+            }
+        </script>
+        <form action="javascript: submit();">
+            <input id="search_field" type="text" name="search_term" placeholder="Search . . .">
+        </form>
+        <div class="group">
+            <h3 class="group-title">Placeholder</h3>
+            <p>Placeholder Placeholder</p>
+            <button class="group-button" onclick="goToAddress('https://www.google.com');">Go</button>
         </div>
+        <div class="group">
+            <h3 class="group-title">Placeholder</h3>
+            <p>Placeholder Placeholder</p>
+            <button class="group-button" onclick="goToAddress('https://www.google.com');">Go</button>
+        </div>
+        <div class="group">
+            <h3 class="group-title">Placeholder</h3>
+            <p>Placeholder Placeholder</p>
+            <button class="group-button" onclick="goToAddress('https://www.google.com');">Go</button>
+        </div>
+        <table>
+            <tr>
+                <td><a href="https://www.reddit.com/r/unixporn">r/unixporn</a></td>
+                <td><a href="https://wiki.archlinux.org">Arch Linux Wiki</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.reddit.com/r/linuxcirclejerk">r/linuxcirclejerk</a></td>
+                <td><a href="https://aur.archlinux.org">AUR</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.reddit.com/r/linux">r/linux</a></td>
+                <td><a href="https://www.archlinux.org/packages">Arch Linux Packages</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.stackoverflow.com">Stack Overflow</a></td>
+                <td><a href="https://www.youtube.com">YouTube</a></td>
+            </tr>
+        </table>
     </body>
 </html>

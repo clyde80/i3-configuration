@@ -1,7 +1,7 @@
 [Configuration]
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
-MiscBordersDefault=FALSE
+MiscBordersDefault=TRUE
 MiscCursorBlinks=TRUE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
@@ -17,15 +17,22 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 FontName=Inconsolata 12
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorForeground=#FDFDFE
-BackgroundDarkness=0.800000
-ColorBackground=#0F1013
-ColorCursor=#FDFDFE
-ColorPalette=rgb(0,0,0);rgb(255,0,94);rgb(253,253,254);rgb(255,255,95);rgb(255,0,94);rgb(226,43,255);rgb(255,0,94);rgb(204,204,204);rgb(46,52,54);rgb(255,86,118);rgb(253,253,254);rgb(255,255,95);rgb(255,128,175);rgb(243,168,255);rgb(255,255,95);rgb(255,255,255)
-TabActivityColor=#FFFF5F
+ColorForeground=#040708
+ColorBackground=#E1D3A4
+ColorCursor=#040708
+ColorPalette=rgb(4,7,8);rgb(130,12,30);rgb(130,12,30);rgb(80,53,36);rgb(22,49,69);rgb(130,12,30);rgb(130,12,30);rgb(204,204,204);rgb(46,52,54);rgb(190,14,41);rgb(190,14,41);rgb(80,53,36);rgb(22,49,69);rgb(190,14,41);rgb(22,49,69);rgb(225,211,164)
+TabActivityColor=#820C1E
 MiscBellUrgent=FALSE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
 MiscDefaultWorkingDir=
 MiscRewrapOnResize=TRUE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundImageFile=/home/cat/Pictures/PBinJ1s.jpg
+BackgroundImageShading=0.530000
+BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_SCALED
+BackgroundDarkness=1.000000
+DropdownWidth=100
+DropdownAlwaysShowTabs=FALSE
+DropdownAnimationTime=250
 

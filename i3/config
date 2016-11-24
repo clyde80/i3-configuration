@@ -90,13 +90,13 @@ bindsym --release $mod+Shift+l exec runrofi.sh
 bindsym --release Print exec scrot
 
 # Increase the volume
-bindsym XF86AudioRaiseVolume exec raisevolume
+bindsym XF86AudioRaiseVolume exec vol -r -b
 
 # Decrease the volume
-bindsym XF86AudioLowerVolume exec lowervolume
+bindsym XF86AudioLowerVolume exec vol -l -b
 
 # Toggle mute/unmute of the volume
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMute exec vol -m -b
 
 # Increase screen brightness by 5
 bindsym XF86MonBrightnessUp exec light -A 5
@@ -112,6 +112,9 @@ bindsym XF86AudioNext exec cmus-remote -n
 
 # Switch to the previous song
 bindsym XF86AudioPrev exec cmus-remote -r
+
+# Dropdown XFCE4 Terminal
+bindsym $mod+Control+T exec xfce4-terminal --drop-down 
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -177,14 +180,15 @@ bar {
         status_command i3status
         font pango: Inconsolata, FontAwesome 10
         colors {
-        	background #0F1013
-        	statusline #FFFFFF
-        	separator #FFFFFF
-        	focused_workspace #0F1013 #0F1013 #FFFF5F
-        	active_workspace #0F1013 #0F1013 #FFFF5F
-        	inactive_workspace #0F1013 #0F1013 #AAAAAA
-        	urgent_workspace #FF005E #FF005E #FFFFFF
+        	background #F4EDD7
+        	statusline #040708
+        	separator #040708
+        	focused_workspace #F4EDD7 #F4EDD7 #820C1E
+        	active_workspace #F4EDD7 #F4EDD7 #820C1E
+        	inactive_workspace #F4EDD7 #F4EDD7 #AAAAAA
+        	urgent_workspace #820C1E #820C1E #F4EDD7
         }
+        position top
 }
 
 for_window [class="^.*"] border pixel 0
@@ -192,3 +196,4 @@ gaps outer 5
 gaps inner 5
 exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton -b
+exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/wallpaper.png

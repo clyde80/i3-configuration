@@ -1,0 +1,138 @@
+/*
+ * Main Colors Used:
+ *
+ * #163145 -- Blue
+ * #820C1E -- Red
+ * #FDFDFE -- White
+ *
+ * Colors were found using GPick.
+ *
+ * Written by: clyde80 on November 21, 2016
+ * Website: github.com/clyde80
+ */
+
+html, body {
+    text-align: center;
+    margin: 0;
+    padding: auto;
+    font-family: "Raleway", "Arial", "Sans";
+}
+
+body {
+    padding-top: 7%;
+}
+
+/* Switch between portrait and landscape backgroundn depending on media
+   screen size. */
+@media screen and (min-width: 825px) {
+    body {
+        background-image: url("old_glory.png");
+        background-repeat: repeat-y;
+        background-size: 100% auto;
+        background-attachment: fixed;
+    }
+}
+
+@media screen and (max-width: 824px) {
+    body {
+        background-image: url("old_glory_portrait.png");
+        background-repeat: repeat-y;
+        background-size: 100% auto;
+        background-attachment: fixed;
+    }
+}
+
+/* Style the search field. */
+#search_field {    
+    background-color: #FDFDFE;
+    color: #163145;
+    border: 2px solid #163145;
+    width: 175px;
+    padding: 10px 0;
+    padding-left: 50px;
+    padding-right: 7px;
+    background-image: url("old_glory.svg");
+    background-position: 3px 9px;
+    background-repeat: no-repeat;
+    margin-top: 1.6em;
+    background-size: 39.9px 21px;
+    font-family: "Raleway", "Arial", "Sans";
+}
+
+/* Animations for the search field depend on how big the device is. 
+   Only do this if the screen width is greater or equal to 401px. */
+@media screen and (min-width: 401px) {
+    #search_field {
+        transition: width 1s, border-color 1s;
+        -webkit-transition: width 1s, border-color 1s;
+    }
+
+    #search_field:hover, #search_field:focus {
+        width: 50%;
+        border-color: #820C1E;
+    }
+}
+
+/* If the device width is less than or equal to 400px, only animate
+   border color. */
+@media screen and (max-width: 400px) {
+    #search_field {
+        transition: border-color 0.5s;
+        -webkit-transition: border-color 0.5s;
+    }
+
+    #search_field:focus, #search_field:hover {
+        border-color: #820C1E;
+    }
+}
+/* End styling the search field. */
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.6em;
+    margin-bottom: 15px;
+}
+
+td {
+    padding: 10px 5px;
+}
+
+/* Style the groups (things directly under the search bar). */
+.group {
+    display: inline-block;
+    width: 200px;
+    margin-top: 1.6em;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.group p, .group-title {
+    color: #FDFDFE;
+}
+
+.group-button {
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid #FFFFFF;
+    background-color: #163145;
+    color: #FDFDFE;
+    transition: color 0.5s, border 0.5s, background-color 0.5s;
+    -webkit-transition: color 0.5s, border 0.5s, background-color 0.5s;
+}
+
+.group-button:hover {
+    color: #820C1E;
+    border-color: #820C1E;
+    background-color: #FDFDFE;
+}
+/* Done styling the groups. */
+
+#title {
+    color: #FDFDFE;
+}
+
+a {
+    text-decoration: none;
+    color: #FDFDFE;
+}
