@@ -1,0 +1,77 @@
+#!/bin/bash
+#
+# This script is used to format the videos of a TV season from the format of 
+# #.ext to "ShowName.S0?#E0?#.ext", where S0?# is the season (S01, S10, etc) and
+# E0?# is the episode number (E01, E10, etc). The episode number is found in the 
+# "#" character of the "#.ext" formatted file name.
+#
+# Created by: clyde80
+# Website: github.com/clyde80
+# Created On: November 27, 2016
+
+# Set the internal field separator to \n so we can handle file names with
+# spaces.
+
+print_help() {
+    echo "Usage: stdep -t [show name] -s [season]"
+    echo
+    echo "  -t      -tv     The name of the TV show"
+    echo "  -s      -season The season of the TV show"
+    echo
+    echo "Created by: clyde80"
+    echo "Website: github.com/clyde80
+}
+
+# Check the length of the argumnts array so we don't execute if all the 
+# arguments are not there.
+if [ $# -ne 4 ]; then
+    print_help
+    exit 0
+fi
+
+base_file_name=''
+season_number=''
+IFS=$'\n'
+
+# Parse the arguments and exits with a status of 1 if an option is not found.
+while [ $# -gt 0 ]; do
+    case $1 in
+        "-t"|"--tv")
+            base_file_name=$2
+            shift; shift;;
+        "-s"|"--season")
+            season_number=$2
+            shift; shift;;
+        "-h"|"--help")
+            print_help
+            exit 0;;
+        *)
+            echo "Option $1 not found."
+            exit 1;;
+    esac
+done
+
+
+# For each file in the current directory (this script is to be run from the
+# directory containing the files you want to rename), rename them with the 
+# specified options.
+for f in $(ls .); do
+    old_name=$(basename $f)
+    ext=${old_name##*.}
+    old_name=${old_name%.*}
+    
+    new_file_name=$base_file_name
+    new_file_name+=".S$season_number"
+
+    if [ $old_name -lt 10 ]; then
+        new_file_name+="E0$old_name"
+    else
+        new_file_name+="E$old_name"
+    fi
+
+    new_file_name+=".$ext"
+
+    echo $new_file_name
+
+    mv $f "./$new_file_name"
+done

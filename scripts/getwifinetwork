@@ -1,0 +1,8 @@
+#!/bin/bash
+OUTPUT=$(nmcli -t -f active,ssid dev wifi | grep "yes")
+if [ ! -z "$OUTPUT" ]; then
+    OUTPUT=${OUTPUT//"yes:"/""}
+    echo " $OUTPUT"
+else
+    echo " Not Connected"
+fi
