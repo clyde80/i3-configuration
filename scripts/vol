@@ -1,5 +1,12 @@
 #!/bin/bash
-
+#
+# Changes the volume using the amixer, then beeps and shows a message, using the
+# notify-send command, to the user displaying how high the volume is. The beep 
+# is optional.
+#
+# Created by: clyde80
+# Website: https://github.com/clyde80
+# Created on: November 26, 2016
 print_help() {
     echo "Usage: vol [-rlm] -b"
     echo
@@ -13,7 +20,7 @@ print_help() {
     echo
     echo "--------------------------------------------"
     echo "Author: clyde80"
-    echo "Website: https://github.com/clyde80"
+    echo "Website: github.com/clyde80"
     echo "Date: November 22, 2016"
 }
 
@@ -22,19 +29,19 @@ can_change=false
 if [ -z "$(amixer get Master | grep off)" ]; then
     can_change=true
 fi
-echo $can_change
 
+# Parse the command arguments.
 case $1 in
     "-r"|"--raise")
         if [ "$can_change" = "true" ]; then
-            amixer set Master 5%+
+            amixer set Master 5%+ # Increase volume by 5
         fi;;
     "-l"|"--lower")
         if [ "$can_change" = "true" ]; then
-            amixer set Master 5%-
+            amixer set Master 5%- # Decrease volume by 5
         fi;;
     "-m"|"--mute") 
-        amixer set Master toggle
+        amixer set Master toggle # Mute/Unmute
 
         # Determine if sound is muted or not and provide a notification.
         if [ "$can_change" == "false" ]; then
@@ -58,7 +65,7 @@ notify-send -t 2 "Volume $(amixer get Master |grep % | head -n 1 |awk '{print $5
 
 case $2 in
     "-b"|"--beep")
-        aplay /usr/share/sounds/beep.wav;;
+        aplay /usr/share/sounds/beep.wav;; # Play the sound.
     *)
         exit 1;;
 esac

@@ -18,7 +18,7 @@ runtime! archlinux.vim
 "let skip_defaults_vim=1
 filetype plugin indent on
 set tabstop=4
-set tabstop=4
+set shiftwidth=4
 set expandtab
 set number
-colo usa
+colo snow

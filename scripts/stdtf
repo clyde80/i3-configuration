@@ -1,0 +1,104 @@
+#!/bin/bash
+#
+# This script is used to reformat folders so they have lowercase letters 
+# instead of uppercase letters and have underscores instead of spaces. 
+#
+# Created by: clyde80
+# Website: https://github.com/clyde80
+# Created On: November 27, 2016
+
+# Set the internal field separator to \n so we can handle file names with
+# spaces.
+IFS=$'\n'
+
+print_help() {
+    echo "Usage: stdtf [OPTIONS] folder"
+    echo
+    echo "  -f      --folders   Rename folders in the specified folder"
+    echo "  -g      --files     Rename files in the specified folder"
+    echo "  -d      --dry-run   Do not change anything, just print output"
+    echo
+    echo "Type 'stdtf -h to display this help message"
+    echo
+    echo "Created by: clyde80"
+}
+
+if [ $# -eq 0 ]; then
+    print_help
+    exit 0;
+fi
+
+# Some things to set. 
+rename_files=false
+rename_folders=false
+dry_run=false
+folder=''
+
+# Parse the command arguments.
+while [ $# -ne 0 ]; do
+    case $1 in
+        "-f"|"--folders")
+            rename_folders=true
+            shift;;
+        "-g"|"--files")
+            rename_files=true
+            shift;;
+        "-d"|"--dry-run")
+            dry_run=true
+            shift;;
+        "-h"|"--help"|"-?")
+            print_help
+            exit 0;;
+        *)
+            folder=$1
+            shift;;
+    esac
+done
+
+# Renames folders in a directory.
+rename_folders() {
+    for f in $(find $folder/* -maxdepth 1 -type d); do
+        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
+    done
+}
+
+# Renames files in a directory.
+rename_files() {
+    for f in $(find $folder -maxdepth 1 -type f); do
+        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
+    done
+}
+
+# Prints out what would be renamed folders in a directory.
+rename_folders_dry_run() {
+    for f in $(find $folder/* -maxdepth 1 -type d); do
+        echo $(basename $f) | tr 'A-Z ' 'a-z_'
+    done
+}
+
+# Prints out what would be renamed files in a directory.
+rename_files_dry_run() {
+    for f in $(find $folder -maxdepth 1 -type f); do
+        echo $(basename $f) | tr 'A-Z ' 'a-z_'
+    done
+}
+
+# Rename files, folders, or do a dry run.
+if [ "$dry_run" = "true" ]; then
+    if [ "$rename_folders" = "true" ]; then
+        rename_folders_dry_run $folder
+    fi
+    if [ "$rename_files" = "true" ]; then
+        rename_files_dry_run $folder
+    fi
+    exit 0
+fi
+if [ "$rename_folders" = "true" ]; then
+    rename_folders $folder
+fi
+if [ "$rename_files" = "true" ]; then
+    rename_files $folder
+fi
+
+echo "Done"
+exit 0

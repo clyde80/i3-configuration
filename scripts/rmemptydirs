@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Lists or remove empty directories in a directory.
+print_help(){
+    echo "Usage: removeemptydirs [-r directory] [-l directory]"
+    echo "Type 'removeemptydirs -h' to display this usage message"
+    echo
+    echo "-l    --list      Only list empty directories. Do not remove."
+    echo "-r    --remove    Remove empty directories."
+    echo
+    echo "If -l is used with -r, the first option specified will be used."
+}
+
+case $1 in
+    "-h"|"--help")
+        print_help;;
+    "-l"|"--list")
+        shift
+        find $1 -type d -empty -print;;
+    "-r"|"--remove")
+        shift
+        find $1 -type d -empty -delete;;
+    *)
+        echo "Option $1 not found"
+        print_help
+        exit 1;;
+esac
+exit $?
