@@ -3,7 +3,7 @@ My i3 configuration files
 
 Current Theme: Winter
 
-Current config pictures: Need to be uploaded.
+Current config pictures: http://imgur.com/gallery/CNCaK
 
 Check the CHANGELOG for recent changes
 
