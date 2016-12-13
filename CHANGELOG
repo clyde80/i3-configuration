@@ -25,6 +25,7 @@ Changes in Winter
       in a zip archive located at /vim/older_colorschemes.zip
 8. Customized colors in top.
 9. Removed install.sh script because I don't like it.
+10. Added some stuff to .bashrc
 
 --------------    
 
