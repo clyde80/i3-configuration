@@ -1,9 +1,9 @@
 # i3-configuration
 My i3 configuration files
 
-Current Theme: USA
+Current Theme: Winter
 
-Current config pictures: http://imgur.com/a/1hVxC
+Current config pictures: Need to be uploaded.
 
 Check the CHANGELOG for recent changes
 
