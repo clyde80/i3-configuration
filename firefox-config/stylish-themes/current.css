@@ -20,8 +20,8 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #040708; --bg-dark: #040708;
-    --fg-light: #BE0E29; --fg-dark: #FFFFFF;
+    --bg-light: #121116; --bg-dark: #121116;
+    --fg-light: #00ff8d; --fg-dark: #FFFFFF;
     --tab-triangle-correction: -1px;
     --tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: 2px; --tab-overlap: -5px;
     --tab-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
@@ -29,7 +29,7 @@
     --tab-triangle: none;  /* block | none */ 
 
     /* URL VARIABLES */
-    --url-background: #040708; --url-color: var(--fg-dark);
+    --url-background: #121116; --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 6px;
     --url-fonts: "Raleway", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
     --url-text-align: left; /* left | center | right */ /* Align where the text in the URL is. */
@@ -350,7 +350,7 @@
     scrollbar[orient='vertical'] > slider { background: #FFFFFF !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #040708 !important; border: 0 !important; width: 100% !important;
+        background: #121116 !important; border: 0 !important; width: 100% !important;
     }
     
     /* #FFFFFF is the background color for the horizontal scrollbar.*/
@@ -358,7 +358,7 @@
     scrollbar[orient='horizontal'] > slider { background: #FFFFFF !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #040708 !important; border: 0 !important; height: 100% !important;
+        background: #121116 !important; border: 0 !important; height: 100% !important;
     }
     
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }

@@ -1,6 +1,11 @@
 #!/bin/bash
 # 
-# Sets the audio to a certain device.
+# Sets the audio output device to headphones, speaker, or HDMI using the pactl
+# amd pacmd programs. Must have PulseAudio installed for this script to work.
+#
+# Created by: clyde80
+# Website: github.com/clyde80
+# Created on: November 30, 2016
 
 print_help(){
     echo "Sets the audio output device"
@@ -9,27 +14,53 @@ print_help(){
     echo "-e    --headphones    Sets the audio output to headphones"
     echo "-s    --speaker       Sets the audio output to speakers"
     echo "-d    --hdmi          Sets the audio output to hdmi"
+    echo "-t    --toggle        Toggle between headphones and speakers"
     echo
     echo "Type 'sao -h' to display this help message"
 }
 
+# Set the audio output device to headphones.
+set_output_to_headphones() {
+    pactl set-card-profile 0 output:analog-stereo
+    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-headphones
+    exit 0
+}
+
+# Set the audio output device to speakers.
+set_output_to_speakers() {
+    pactl set-card-profile 0 output:analog-stereo
+    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-speaker
+    exit 0
+}
+
+# Set the audio output device to HDMI
+set_output_to_hdmi() {
+    pactl set-card-profile 0 output:hdmi-stereo
+    exit 0
+}
+
+# Parse the arguments.
 case $1 in
-    "-h"|"--help")
-        print_help
-        exit 0;;
-    "-e"|"--headphones")
-        pactl set-card-profile 0 output:analog-stereo
-        pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-headphones
-        exit 0;;
-    "-s"|"--speaker")
-        pactl set-card-profile 0 output:analog-stereo
-        pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-speaker
-        exit 0;;
-    "-d"|"--hdmi")
-        pactl set-card-profile 0 output:hdmi-stereo
-        exit 0;;
+    "-h"|"--help") print_help; exit 0;;
+    "-e"|"--headphones") set_output_to_headphones;;
+    "-s"|"--speaker") set_output_to_speakers;;
+    "-d"|"--hdmi") set_output_to_hdmi;;
+    "-t"|"--toggle")
+        # Get whether or not the headphones are being used.
+        OUTPUT=$(pacmd list-sinks | grep "active port")
+        HEADPHONES=false
+        case $OUTPUT in
+                *"<analog-output-headphones>"*) HEADPHONES=true;;
+        esac
+
+        # Toggle between headphones and speakers.
+        if [ "$HEADPHONES" = "true" ]; then
+            set_output_to_speakers
+        else
+            set_output_to_headphones
+        fi;;
     *)
-        echo "Command not found"
+        echo "Command $1 not found"
         print_help
         exit 1;;
 esac

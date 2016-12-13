@@ -1,0 +1,32 @@
+#!/bin/bash
+
+print_help() {
+    echo "Sets the screen brightness"
+    echo "Usage: backlight [-ud]"
+    echo
+    echo "-u    --up    Raises the screen brightness"
+    echo "-d    --down  Lowers the screen brightness"
+    echo
+    echo "Type 'backlight -h' to display this help message"
+    echo
+    echo "--------------------------------------------"
+    echo "Author: clyde80" 
+    echo "Website: https://github.com/clyde80"
+    echo "Date: November 24, 2016"
+    echo "--------------------------------------------"
+    echo "Depends on 'light'"
+}
+
+case $1 in
+    "-u"|"--up")
+        light -A $2;;
+    "-d"|"--down")
+        light -U $2;;
+    "-h"|"--help")
+        print_help
+        exit 0;;
+    *)
+        exit 1;;
+esac
+
+notify-send -t 2 "Brightness: $(light)"
