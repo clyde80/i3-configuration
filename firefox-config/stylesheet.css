@@ -1,9 +1,9 @@
 /*
  * Main Colors Used:
  *
- * #163145 -- Blue
- * #820C1E -- Red
- * #FDFDFE -- White
+ * White: #FFFFFF
+ * Black: #121116
+ * Green: #00FF8D
  *
  * Colors were found using GPick.
  *
@@ -20,42 +20,17 @@ html, body {
 
 body {
     padding-top: 7%;
-}
-
-/* Switch between portrait and landscape backgroundn depending on media
-   screen size. */
-@media screen and (min-width: 825px) {
-    body {
-        background-image: url("old_glory.png");
-        background-repeat: repeat-y;
-        background-size: 100% auto;
-        background-attachment: fixed;
-    }
-}
-
-@media screen and (max-width: 824px) {
-    body {
-        background-image: url("old_glory_portrait.png");
-        background-repeat: repeat-y;
-        background-size: 100% auto;
-        background-attachment: fixed;
-    }
+    background-color: #121116;
 }
 
 /* Style the search field. */
 #search_field {    
-    background-color: #FDFDFE;
-    color: #163145;
-    border: 2px solid #163145;
-    width: 175px;
-    padding: 10px 0;
-    padding-left: 50px;
-    padding-right: 7px;
-    background-image: url("old_glory.svg");
-    background-position: 3px 9px;
-    background-repeat: no-repeat;
+    background-color: #121116;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    width: 178px;
+    padding: 10px 10px;
     margin-top: 1.6em;
-    background-size: 39.9px 21px;
     font-family: "Raleway", "Arial", "Sans";
 }
 
@@ -63,13 +38,15 @@ body {
    Only do this if the screen width is greater or equal to 401px. */
 @media screen and (min-width: 401px) {
     #search_field {
-        transition: width 1s, border-color 1s;
-        -webkit-transition: width 1s, border-color 1s;
+        transition: width 1s, border-color 1s, background-color 1s, color 1s;
+        -webkit-transition: width 1s, border-color 1s, background-color 1s, color 1s;
     }
 
     #search_field:hover, #search_field:focus {
-        width: 50%;
-        border-color: #820C1E;
+        width: 626px; /* 626 because of 1px border */
+        border-color: #00ff8d;
+        background-color: #00ff8d;
+        color: #121116;
     }
 }
 
@@ -87,52 +64,38 @@ body {
 }
 /* End styling the search field. */
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1.6em;
-    margin-bottom: 15px;
-}
-
-td {
-    padding: 10px 5px;
-}
-
 /* Style the groups (things directly under the search bar). */
-.group {
-    display: inline-block;
-    width: 200px;
+.row {
     margin-top: 1.6em;
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.group p, .group-title {
-    color: #FDFDFE;
-}
-
 .group-button {
-    width: 100%;
+    width: 200px;
+    display: inline-block;
     padding: 10px 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     border: 1px solid #FFFFFF;
-    background-color: #163145;
-    color: #FDFDFE;
+    background-color: #121116;
+    color: #FFFFFF;
     transition: color 0.5s, border 0.5s, background-color 0.5s;
     -webkit-transition: color 0.5s, border 0.5s, background-color 0.5s;
 }
 
 .group-button:hover {
-    color: #820C1E;
-    border-color: #820C1E;
-    background-color: #FDFDFE;
+    color: #121116;
+    border-color: #00ff8d;
+    background-color: #00ff8d;
 }
 /* Done styling the groups. */
 
 #title {
-    color: #FDFDFE;
+    color: #FFFFFF;
 }
 
 a {
     text-decoration: none;
-    color: #FDFDFE;
+    color: #FFFFFF;
 }

@@ -1,5 +1,0 @@
-#!/bin/bash
-while true; do
-    echo !:0
-    sleep 5
-done

@@ -1,7 +1,0 @@
-[Scheme]
-Name=Red And Yellow
-ColorForeground=#FDFDFE
-ColorBackground=#0F1013
-ColorCursor=#FDFDFE
-TabActivityColor=#FFFF5F
-ColorPalette=rgb(0,0,0);rgb(255,0,94);rgb(0,255,74);rgb(252,233,79);rgb(255,0,94);rgb(226,43,255);rgb(255,0,94);rgb(204,204,204);rgb(46,52,54);rgb(255,86,118);rgb(144,255,176);rgb(252,233,79);rgb(255,128,175);rgb(243,168,255);rgb(252,233,79);rgb(255,255,255)

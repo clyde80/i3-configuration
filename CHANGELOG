@@ -2,6 +2,32 @@ i3conf.v# is the tag of the release.
 
 Logging started on November 08, 2016
 
+Changes in Winter
+    - Date: December 12, 2016
+
+1. Change main colors to black, white, and green.
+2. Change colors in CMUS.
+3. Add new terminal theme (winter.theme).
+    - Compressed other themes to clean up directory. Older configurations are now
+      located in /terminal_themes/older_themes.zip.
+4. Quit using i3status and started using yabar (/yabar)
+    - Added workspace monitoring script in yabar.
+    - Added other scripts that yabar may use in /scripts.
+    - Added yabar config file (/yabar/yabar.conf)
+5. Changed look and style of firefox homepage (stylesheet.css)
+    - All links are now buttons.
+    - Changed colors to green, white, and black.
+6. Added new stylish CSS file (winter.css)
+    - Compressed other CSS files to clean up directory. Older configurations are now
+      in zip archive located at /firefox-config/stylish-themes/older_themes.zip
+7. Added a new vim colorscheme (vim/winter.vim)
+    - Compressed other vim colorschemes to clean up directory. Older configurations are
+      in a zip archive located at /vim/older_colorschemes.zip
+8. Customized colors in top.
+9. Removed install.sh script because I don't like it.
+
+--------------    
+
 Changes in USA theme
     - Date: November 23, 2016
 
