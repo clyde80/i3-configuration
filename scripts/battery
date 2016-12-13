@@ -1,0 +1,14 @@
+#!/bin/bash
+BATPERC=$(acpi --battery | cut -d, -f2)
+BATPERC=${BATPERC//"%"/""}
+if [ $BATPERC -gt 75 ]; then
+    echo " $BATPERC%"
+elif [ $BATPERC -le 75 -a $BATPERC -gt 50 ]; then
+    echo " $BATPERC%"
+elif [ $BATPERC -le 50 -a $BATPERC -gt 25 ]; then
+    echo " $BATPERC%"
+elif [ $BATPERC -le 25 -a $BATPERC -gt 10 ]; then
+    echo " $BATPERC%"
+else 
+    echo " $BATPERC%"
+fi

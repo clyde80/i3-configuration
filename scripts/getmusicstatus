@@ -1,0 +1,11 @@
+#!/bin/bash
+OUTPUT=$(cmus-remote -Q)
+if [ -z "$OUTPUT" ]; then
+    echo "No Music Playing"
+else
+    ARTIST=$(cmus-remote -Q | grep "tag artist")
+    ARTIST=${ARTIST//"tag artist "/""}
+    TITLE=$(cmus-remote -Q | grep "tag title")
+    TITLE=${TITLE//"tag title "/""}
+    echo "   $ARTIST - $TITLE   "
+fi

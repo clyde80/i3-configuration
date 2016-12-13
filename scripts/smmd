@@ -1,13 +1,22 @@
 #!/bin/bash
 #
-# Sets the display for a dual monitor setup on my computer
+# Sets up a dual monitor configuration with the second monitor to the left of
+# the first. 
+#
+# To use this script, you will most likely have to modify it to your liking.
+# 
+# Created by: clyde80
+# Website: github.com/clyde80
+# Created on: November 30, 2016
 
+# Print the help message.
 print_help(){
     echo "Sets the output display for a multimonitor setup"
-    echo "Usage: smmd [-rs]"
     echo
-    echo "-r    --reset     Resets the display"
+    echo "Usage: smmd [-sr]"
+    echo
     echo "-s    --set       Sets the multi-monitor display"
+    echo "-r    --reset     Resets the display"
     echo
     echo "Type 'smmd -h' to display this help message"
 }
@@ -16,12 +25,28 @@ case $1 in
     "-h"|"--help")
         print_help
         exit 0;;
-    "-r"|"--reset")
-        xrandr --output LVDS-1 --mode 1366x768 --primary
-        xrandr --output HDMI-1 --off
-        exit 0;;
     "-s"|"--set")
+
+        # Set the multi monitor display. HDMI-1 is the name of the second 
+        # monitor to use. You can find the name of your monitor by typing 
+        # "xrandr" into your terminal. The monitor name is to the left of the
+        # status (connected|disconnected). 
+        #
+        # If you want the second monitor to be to the right of the primary 
+        # monitor, you can replace "--left-of" with "--right-of".
+        #
+        # Replace "--left-of" with "--same-as" to mirror primary display to 
+        # second display.
         xrandr --output HDMI-1 --auto --left-of LVDS-1
+        exit 0;;
+    "-r"|"--reset")
+
+        # Set the main display to LVDS-1. Again, you can find names of the 
+        # different displays by typing "xrandr" into your terminal. 
+        xrandr --output LVDS-1 --mode 1366x768 --primary
+
+        # Stop using HDMI-1.
+        xrandr --output HDMI-1 --off
         exit 0;;
     *)
         echo "Option $1 not found"

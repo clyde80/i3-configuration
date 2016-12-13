@@ -81,7 +81,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Lock screen
-bindsym --release $mod+l exec lock -f Inconsolata -p
+bindsym --release $mod+l exec lock -pf Raleway -- scrot -z
 
 # start rofi
 bindsym --release $mod+Shift+l exec runrofi.sh
@@ -99,10 +99,10 @@ bindsym XF86AudioLowerVolume exec vol -l -b
 bindsym XF86AudioMute exec vol -m -b
 
 # Increase screen brightness by 5
-bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessUp exec backlight -u 5
 
 # Decrease screen brightness by 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessDown exec backlight -d 5
 
 # Toggle pause/play on the song that is currently paused or playing
 bindsym XF86AudioPlay exec togglepauseplay
@@ -114,7 +114,7 @@ bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioPrev exec cmus-remote -r
 
 # Dropdown XFCE4 Terminal
-bindsym $mod+Control+T exec xfce4-terminal --drop-down 
+bindsym $mod+Control+d exec xfce4-terminal --drop-down 
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -171,29 +171,46 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+b "borders"
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        font pango: Inconsolata, FontAwesome 10
-        colors {
-        	background #F4EDD7
-        	statusline #040708
-        	separator #040708
-        	focused_workspace #F4EDD7 #F4EDD7 #820C1E
-        	active_workspace #F4EDD7 #F4EDD7 #820C1E
-        	inactive_workspace #F4EDD7 #F4EDD7 #AAAAAA
-        	urgent_workspace #820C1E #820C1E #F4EDD7
-        }
-        position top
-}
+#bar {
+#        status_command i3status
+#        font pango: Inconsolata, FontAwesome 10
+#        colors {
+#        	background #FFFFFF
+#        	statusline #121116
+#        	separator #121116
+#        	focused_workspace #FFFFFF #FFFFFF #121116
+#        	active_workspace #FFFFFF #FFFFFF #121116
+#        	inactive_workspace #FFFFFF #FFFFFF #AAAAAA
+#        	urgent_workspace #FF005E #FF005E #121116
+#        }
+#        position top # Status bar at the top
+#}
 
-for_window [class="^.*"] border pixel 0
+# Window Borders
+# Client Class              <border>    <background>    <text>      <indicator>     <child_border>
+client.focused              #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
+client.focused_inactive     #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
+client.unfocused            #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
+client.urgent               #BE0E29     #BE0E29         #E1D3A4     #BE0E29         #BE0E29
+client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
+client.background           #FFFFFF
+for_window [class="^.*"] border pixel 5px
+
 gaps outer 5
 gaps inner 5
+
+# Allow clicking witht the touchpad
 exec --no-startup-id synclient TapButton1=1
+
+# Start compton
 exec --no-startup-id compton -b
-exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/wallpaper.png
+
+# Set the background
+exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/01.jpg
+
+# Start yabar
+exec --no-startup-id yabar
