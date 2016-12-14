@@ -1,4 +1,4 @@
-# bash-scripts
+# Scripts
 A collection of my bash scripts.
 
 <h1>What do the scripts do?</h1>
