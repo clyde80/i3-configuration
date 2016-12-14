@@ -26,6 +26,10 @@ Changes in Winter
 8. Customized colors in top.
 9. Removed install.sh script because I don't like it.
 10. Added some stuff to .bashrc
+11. Changed /scripts/vol file to play a different sound.
+    - It now plays dialog-warning.wav (original is dialog-warning.oga).
+12. Added /scripts/gifenc.
+    - Converts screen recording to gif.
 
 --------------    
 
