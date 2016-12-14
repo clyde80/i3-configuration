@@ -23,6 +23,7 @@ Terminal transparency: <a href="https://github.com/chjj/compton">Compton</a><br>
 <h3>Others</h3>
 
 <a href="https://github.com/Airblader/i3">i3-gaps</a><br>
+<a href="https://github.com/meskarune/i3lock-fancy">i3lock-fancy</a><br>
 <a href="https://github.com/DaveDavenport/rofi">Rofi</a><br>
 <a href="https://github.com/geommer/yabar">Yabar</a><br>
 <a href="https://github.com/cmus/cmus">Cmus</a><br>
