@@ -24,6 +24,11 @@ print_help() {
     echo "Date: November 22, 2016"
 }
 
+if [ $# -eq 0 ]; then
+    print_help
+    exit 0
+fi
+
 # Determine if the sound can be changed.
 can_change=false
 if [ -z "$(amixer get Master | grep off)" ]; then
@@ -47,7 +52,7 @@ case $1 in
         if [ "$can_change" == "false" ]; then
             notify-send -t 2 "Sound unmuted"
             case $2 in 
-                "-b"|"--beep") aplay /usr/share/sounds/beep.wav
+                "-b"|"--beep") aplay /usr/share/sounds/freedesktop/stereo/dialog-warning.wav;;
             esac
         else
             notify-send -t 2 "Sound muted"
@@ -65,7 +70,7 @@ notify-send -t 2 "Volume $(amixer get Master |grep % | head -n 1 |awk '{print $5
 
 case $2 in
     "-b"|"--beep")
-        aplay /usr/share/sounds/beep.wav;; # Play the sound.
+        aplay /usr/share/sounds/freedesktop/stereo/dialog-warning.wav;; # Play the sound.
     *)
         exit 1;;
 esac
