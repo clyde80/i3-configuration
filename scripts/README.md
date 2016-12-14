@@ -38,3 +38,5 @@ getmusicstatus -- Displays the current song playing in Cmus in the format of "AR
 battery -- Used to display the battery percentage in yabar. Icon displayed in yabar also changes based on how much battery is left.
 
 monitor_workspaces.py -- Displays the open workspaces. Uses i3ipc.
+
+gifenc -- Script used to create GIFs out of screen recording. Found at http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
