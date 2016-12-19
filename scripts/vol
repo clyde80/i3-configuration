@@ -6,22 +6,26 @@
 #
 # Created by: clyde80
 # Website: https://github.com/clyde80
-# Created on: November 26, 2016
+# Created on: November 22, 2016
+# Updated on: December 18, 2016
 print_help() {
-    echo "Usage: vol [-rlm] -b"
+    echo "Usage: vol [-rlm] -b [value]"
     echo
     echo "-r    --raise     Raises the volume by 5"
     echo "-l    --lower     Lowers the volume by 5"
     echo "-m    --mute      Toggles mute"
     echo
     echo "-b    --beep      Whether or not to beep on sound change"
+    echo "                  Specify a value of 1 or 2 for a different beep"
+    echo "                  sound"
     echo
-    echo "Type sah -h to display this help message"
+    echo "Type vol -h to display this help message"
     echo
     echo "--------------------------------------------"
     echo "Author: clyde80"
     echo "Website: github.com/clyde80"
-    echo "Date: November 22, 2016"
+    echo "Created: November 22, 2016"
+    echo "Updated: December 18, 2016"
 }
 
 if [ $# -eq 0 ]; then
@@ -49,13 +53,23 @@ case $1 in
         amixer set Master toggle # Mute/Unmute
 
         # Determine if sound is muted or not and provide a notification.
-        if [ "$can_change" == "false" ]; then
-            notify-send -t 2 "Sound unmuted"
+        if [ "$can_change" = "false" ]; then
+            notify-send -t 675 "Sound unmuted"
             case $2 in 
-                "-b"|"--beep") aplay /usr/share/sounds/freedesktop/stereo/dialog-warning.wav;;
+                "-b"|"--beep") 
+                    if [ $3 -eq 1 ]; then
+                        aplay /usr/share/sounds/freedesktop/stereo/beep1.wav
+                    elif [ $3 -eq 2 ]; then
+                        aplay /usr/share/sounds/freedesktop/stereo/beep2.wav
+                    else    
+                        echo "No sound for -b $3 found."
+                    fi;;
+                *)
+                    echo "Invalid argument: $2"
+                    exit 1;;
             esac
         else
-            notify-send -t 2 "Sound muted"
+            notify-send -t 675 "Sound muted"
         fi
         exit 0;;
     "-h"|"--help")
@@ -66,12 +80,19 @@ case $1 in
 esac
 
 # Display a notification to the user using notify-send command.
-notify-send -t 2 "Volume $(amixer get Master |grep % | head -n 1 |awk '{print $5}'|sed 's/[^0-9\%]//g')"
+notify-send -t 675 "$(getvolume)"
 
 case $2 in
     "-b"|"--beep")
-        aplay /usr/share/sounds/freedesktop/stereo/dialog-warning.wav;; # Play the sound.
+        if [ $3 -eq 1 ]; then
+            aplay /usr/share/sounds/freedesktop/stereo/beep1.wav
+        elif [ $3 -eq 2 ]; then
+            aplay /usr/share/sounds/freedesktop/stereo/beep2.wav
+        else
+            echo "No sound for -b $3 found."
+        fi;;
     *)
+        echo "Invalid argument: $2"
         exit 1;;
 esac
 
