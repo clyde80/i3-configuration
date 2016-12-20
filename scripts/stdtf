@@ -1,26 +1,28 @@
 #!/bin/bash
 #
-# This script is used to reformat folders so they have lowercase letters 
-# instead of uppercase letters and have underscores instead of spaces. 
+# Renames files and folders within a directory to only have lowercase letters
+# and underscores in their file names.
 #
-# Created by: clyde80
+# Author: clyde80
 # Website: https://github.com/clyde80
-# Created On: November 27, 2016
-
-# Set the internal field separator to \n so we can handle file names with
-# spaces.
-IFS=$'\n'
-
+# Created on: November 27, 2016
+# Updated on: December 19, 2016
+#
 print_help() {
-    echo "Usage: stdtf [OPTIONS] folder"
+    echo "Usage: stdtf [options] folder"
+    echo
+    echo "Options"
     echo
     echo "  -f      --folders   Rename folders in the specified folder"
     echo "  -g      --files     Rename files in the specified folder"
     echo "  -d      --dry-run   Do not change anything, just print output"
     echo
-    echo "Type 'stdtf -h to display this help message"
+    echo "Type 'stdtf -h' to display this help message"
     echo
-    echo "Created by: clyde80"
+    echo "Author: clyde80"
+    echo "Website: https://github.com/clyde80"
+    echo "Created on: November 27, 2016"
+    echo "Updated on: December 19, 2016"
 }
 
 if [ $# -eq 0 ]; then
@@ -28,32 +30,55 @@ if [ $# -eq 0 ]; then
     exit 0;
 fi
 
-# Some things to set. 
-rename_files=false
-rename_folders=false
-dry_run=false
-folder=''
+# Handle spaces in file names.
+IFS=$'\n'
+
+rename_files=false      # Whether or not to rename files.
+rename_folders=false    # Whether or not to rename folders.
+dry_run=false           # Whether to rename anything or only print output.
+folder=''               # The folder containing the files and folders to be renamed.
 
 # Parse the command arguments.
 while [ $# -ne 0 ]; do
     case $1 in
         "-f"|"--folders")
+            if [ "$rename_folders" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             rename_folders=true
             shift;;
         "-g"|"--files")
+            if [ "$rename_files" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             rename_files=true
             shift;;
         "-d"|"--dry-run")
+            if [ "$dry_run" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             dry_run=true
             shift;;
-        "-h"|"--help"|"-?")
+        "-h"|"--help")
             print_help
             exit 0;;
         *)
+            if [ ! -z "$folder" ]; then
+                echo "Invalid option: $1"
+                exit 1
+            fi
             folder=$1
             shift;;
     esac
 done
+
+if [ -z "$folder" ]; then
+    echo "Error: No folder specified"
+    exit 1
+fi
 
 # Renames folders in a directory.
 rename_folders() {
@@ -69,14 +94,14 @@ rename_files() {
     done
 }
 
-# Prints out what would be renamed folders in a directory.
+# Print out the changed folder names but do not change anything.
 rename_folders_dry_run() {
     for f in $(find $folder/* -maxdepth 1 -type d); do
         echo $(basename $f) | tr 'A-Z ' 'a-z_'
     done
 }
 
-# Prints out what would be renamed files in a directory.
+# Print out the changed file names but do not change anything.
 rename_files_dry_run() {
     for f in $(find $folder -maxdepth 1 -type f); do
         echo $(basename $f) | tr 'A-Z ' 'a-z_'
@@ -84,21 +109,19 @@ rename_files_dry_run() {
 }
 
 # Rename files, folders, or do a dry run.
-if [ "$dry_run" = "true" ]; then
-    if [ "$rename_folders" = "true" ]; then
+if [ "$dry_run" = true ]; then
+    if [ "$rename_folders" = true ]; then
         rename_folders_dry_run $folder
     fi
-    if [ "$rename_files" = "true" ]; then
+    if [ "$rename_files" = true ]; then
         rename_files_dry_run $folder
     fi
     exit 0
 fi
-if [ "$rename_folders" = "true" ]; then
+if [ "$rename_folders" = true ]; then
     rename_folders $folder
 fi
-if [ "$rename_files" = "true" ]; then
+if [ "$rename_files" = true ]; then
     rename_files $folder
 fi
-
-echo "Done"
 exit 0
