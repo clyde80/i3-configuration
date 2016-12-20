@@ -1,15 +1,16 @@
 #!/bin/bash
 #
-# Changes the volume using the amixer, then beeps and shows a message, using the
-# notify-send command, to the user displaying how high the volume is. The beep 
-# is optional.
+# This script will change the volume of the system and will also provide audio
+# feedback (optional) and display a notification with the system volume. This 
+# script uses amixer.
 #
-# Created by: clyde80
+# Author: clyde80
 # Website: https://github.com/clyde80
 # Created on: November 22, 2016
-# Updated on: December 18, 2016
+# Updated on: December 19, 2016
+#
 print_help() {
-    echo "Usage: vol [-rlm] -b [value]"
+    echo "Usage: vol -[rlm] -b [value]"
     echo
     echo "-r    --raise     Raises the volume by 5"
     echo "-l    --lower     Lowers the volume by 5"
@@ -19,13 +20,12 @@ print_help() {
     echo "                  Specify a value of 1 or 2 for a different beep"
     echo "                  sound"
     echo
-    echo "Type vol -h to display this help message"
+    echo "Type 'vol -h' to display this help message"
     echo
-    echo "--------------------------------------------"
     echo "Author: clyde80"
-    echo "Website: github.com/clyde80"
-    echo "Created: November 22, 2016"
-    echo "Updated: December 18, 2016"
+    echo "Website: https://github.com/clyde80"
+    echo "Created on: November 22, 2016"
+    echo "Updated on: December 19, 2016"
 }
 
 if [ $# -eq 0 ]; then
@@ -76,6 +76,7 @@ case $1 in
         print_help
         exit 0;;
     *)
+        echo "Invalid option: $1"
         exit 1;;
 esac
 

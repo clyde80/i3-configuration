@@ -1,22 +1,28 @@
 #!/bin/bash
 # 
-# Sets the audio output device to headphones, speaker, or HDMI using the pactl
-# amd pacmd programs. Must have PulseAudio installed for this script to work.
+# Sets the audio output device to headphones, speaker, or HDMI using 
+# PulseAudio.
 #
-# Created by: clyde80
-# Website: github.com/clyde80
+# Author: clyde80
+# Website: https://github.com/clyde80
 # Created on: November 30, 2016
-
+# Updated on: December 19, 2016
+#
 print_help(){
-    echo "Sets the audio output device"
-    echo "Usage: sao [-esdr]"
+    echo "Sets the audio output device to headphones, speakers, or HDMI."
+    echo "Usage: sao -[esdt]"
     echo 
     echo "-e    --headphones    Sets the audio output to headphones"
     echo "-s    --speaker       Sets the audio output to speakers"
-    echo "-d    --hdmi          Sets the audio output to hdmi"
+    echo "-d    --hdmi          Sets the audio output to HDMI"
     echo "-t    --toggle        Toggle between headphones and speakers"
     echo
     echo "Type 'sao -h' to display this help message"
+    echo
+    echo "Author: clyde80"
+    echo "Website: https://github.com/clyde80"
+    echo "Created on: November 30, 2016"
+    echo "Updated on: December 19, 2016"
 }
 
 # Set the audio output device to headphones.
@@ -33,13 +39,13 @@ set_output_to_speakers() {
     exit 0
 }
 
-# Set the audio output device to HDMI
+# Set the audio output device to HDMI.
 set_output_to_hdmi() {
     pactl set-card-profile 0 output:hdmi-stereo
     exit 0
 }
 
-# Parse the arguments.
+# Parse the command line arguments.
 case $1 in
     "-h"|"--help") print_help; exit 0;;
     "-e"|"--headphones") set_output_to_headphones;;
@@ -47,14 +53,14 @@ case $1 in
     "-d"|"--hdmi") set_output_to_hdmi;;
     "-t"|"--toggle")
         # Get whether or not the headphones are being used.
-        OUTPUT=$(pacmd list-sinks | grep "active port")
-        HEADPHONES=false
-        case $OUTPUT in
-                *"<analog-output-headphones>"*) HEADPHONES=true;;
+        output=$(pacmd list-sinks | grep "active port")
+        headphones=false
+        case $output in
+                *"<analog-output-headphones>"*) headphones=true;;
         esac
 
         # Toggle between headphones and speakers.
-        if [ "$HEADPHONES" = "true" ]; then
+        if [ "$headphones" = "true" ]; then
             set_output_to_speakers
         else
             set_output_to_headphones

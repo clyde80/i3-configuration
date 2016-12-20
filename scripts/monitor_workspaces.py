@@ -1,8 +1,6 @@
 import i3ipc
 import sys
 
-# The focused workspace will be a green dot. The urgent workspace will be a red
-# dot. The unfocused workspace will be a white circle.
 focused_ws = ""
 urgent_ws = ""
 unfocused_ws = ""
