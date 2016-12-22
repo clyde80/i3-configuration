@@ -29,7 +29,7 @@
 # Author: clyde80
 # Website: https://github.com/clyde80
 # Created on: November 27, 2016
-# Updated on: December 19, 2016
+# Updated on: December 22, 2016
 #
 print_help() {
     echo "Usage: stdep -n [show name] -s [season] -d [directory]"
@@ -43,7 +43,7 @@ print_help() {
     echo "Author: clyde80"
     echo "Website: https://github.com/clyde80"
     echo "Created on: November 27, 2016"
-    echo "Updated on: December 19, 2016"
+    echo "Updated on: December 22, 2016"
 }
 
 # If the user did not specify six command line arguments, print the help message
