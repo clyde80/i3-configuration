@@ -46,22 +46,19 @@ while [ $# -ne 0 ]; do
                 echo "Duplicate option: $1"
                 exit 1
             fi
-            rename_folders=true
-            shift;;
+            rename_folders=true; shift;;
         "-g"|"--files")
             if [ "$rename_files" = true ]; then
                 echo "Duplicate option: $1"
                 exit 1
             fi
-            rename_files=true
-            shift;;
+            rename_files=true; shift;;
         "-d"|"--dry-run")
             if [ "$dry_run" = true ]; then
                 echo "Duplicate option: $1"
                 exit 1
             fi
-            dry_run=true
-            shift;;
+            dry_run=true; shift;;
         "-h"|"--help")
             print_help
             exit 0;;
@@ -70,8 +67,7 @@ while [ $# -ne 0 ]; do
                 echo "Invalid option: $1"
                 exit 1
             fi
-            folder=$1
-            shift;;
+            folder=$1; shift;;
     esac
 done
 
