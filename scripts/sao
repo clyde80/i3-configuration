@@ -6,7 +6,7 @@
 # Author: clyde80
 # Website: https://github.com/clyde80
 # Created on: November 30, 2016
-# Updated on: December 19, 2016
+# Updated on: December 22, 2016
 #
 print_help(){
     echo "Sets the audio output device to headphones, speakers, or HDMI."
@@ -22,7 +22,7 @@ print_help(){
     echo "Author: clyde80"
     echo "Website: https://github.com/clyde80"
     echo "Created on: November 30, 2016"
-    echo "Updated on: December 19, 2016"
+    echo "Updated on: December 22, 2016"
 }
 
 # Set the audio output device to headphones.
