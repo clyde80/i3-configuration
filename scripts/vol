@@ -42,18 +42,18 @@ fi
 # Parse the command arguments.
 case $1 in
     "-r"|"--raise")
-        if [ "$can_change" = "true" ]; then
+        if [ "$can_change" = true ]; then
             amixer set Master 5%+ # Increase volume by 5
         fi;;
     "-l"|"--lower")
-        if [ "$can_change" = "true" ]; then
+        if [ "$can_change" = true ]; then
             amixer set Master 5%- # Decrease volume by 5
         fi;;
     "-m"|"--mute") 
         amixer set Master toggle # Mute/Unmute
 
         # Determine if sound is muted or not and provide a notification.
-        if [ "$can_change" = "false" ]; then
+        if [ "$can_change" = false ]; then
             notify-send -t 675 "Sound unmuted"
             case $2 in 
                 "-b"|"--beep") 
