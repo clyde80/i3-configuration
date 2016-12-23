@@ -5,20 +5,25 @@
 #
 # To use this script, you will most likely have to modify it to your liking.
 # 
-# Created by: clyde80
-# Website: github.com/clyde80
+# Author: clyde80
+# Website: https://github.com/clyde80
 # Created on: November 30, 2016
-
-# Print the help message.
+# Updated on: December 22, 2016
+#
 print_help(){
     echo "Sets the output display for a multimonitor setup"
     echo
-    echo "Usage: smmd [-sr]"
+    echo "Usage: smmd -[sr]"
     echo
     echo "-s    --set       Sets the multi-monitor display"
     echo "-r    --reset     Resets the display"
     echo
     echo "Type 'smmd -h' to display this help message"
+    echo
+    echo "Author: clyde80"
+    echo "Website: https://github.com/clyde80"
+    echo "Created on: November 30, 2016"
+    echo "Updated on: December 22, 2016"
 }
 
 case $1 in
@@ -37,7 +42,14 @@ case $1 in
         #
         # Replace "--left-of" with "--same-as" to mirror primary display to 
         # second display.
-        xrandr --output HDMI-1 --auto --left-of LVDS-1
+        xrandr --output HDMI-1 --auto --right-of LVDS-1
+
+        # Set the background image again because the background image is messed
+        # up when adding another screen.
+        feh --bg-scale /home/cat/Pictures/wallpapers/06.jpg
+
+        # Set the audio output to HDMI
+        sao -d
         exit 0;;
     "-r"|"--reset")
 
@@ -47,6 +59,13 @@ case $1 in
 
         # Stop using HDMI-1.
         xrandr --output HDMI-1 --off
+
+        # Set the background image again because the background image is 
+        # messed up when turning off the screen.
+        feh --bg-scale /home/cat/Pictures/wallpapers/06.jpg
+
+        # Set the audio output to speaker.
+        sao -s
         exit 0;;
     *)
         echo "Option $1 not found"

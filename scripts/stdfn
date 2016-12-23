@@ -1,18 +1,38 @@
 #!/bin/bash
 #
-# Renames all files or folders within a directory to a standard name with a
-# prefix and a number (Prefix.01.mp4, Prefix.02.mp4).
+# This is a batch file renaming script used for renaming files to a standard
+# format of "FileName{separator}{number}.ext" where "FileName" is the prefix of 
+# the file's name, "{separator}" is the character to use to separate the 
+# "FileName" and "{number}", and "{number}" is used to number the files.
 #
-# Created by: clyde80
-# Website: github.com/clyde80
+# Example:
+#
+# Directory contents of ~/Pictures/random before running script:
+#
+#   ls ~/Pictures/random
+#   093o2ilj4w.jpg  0932jlkjwsf.jpg  302iolskjdo.jpg
+#
+# User runs the following command:
+#   
+#   stdfn -f -p Picture -s . ~/Pictures/random
+#
+# Directory contents of ~/Pictures/random after running script:
+#
+#   ls ~/Pictures/random
+#   Picture.01.jpg  Picture.02.jpg  Picture.03.jpg
+#
+# Author: clyde80
+# Website: https://github.com/clyde80
 # Created on: November 28, 2016  
-
-# Sets the internal field separator to '\n' so we can handle file names with
-# spaces.
+# Updated on: December 22, 2016
+#
+# Deal with spaces in file names.
 IFS=$'\n'
 
 print_help() {
-    echo "Usage: stdfn [options] -p prefix directory"
+    echo "Usage: stdfn [options] -p [prefix] directory"
+    echo
+    echo "Options"
     echo
     echo "  -f      --files     Rename files"
     echo "  -F      --folders   Rename folders"
@@ -21,10 +41,12 @@ print_help() {
     echo "  -p      --prefix    The prefix to use when renaming files"
     echo "  -s      --separator The character to separate the prefix and #"
     echo
-    echo "------------------------------------------------------------------"
-    echo "Created by: clyde80"
-    echo "Website: github.com/clyde80"
+    echo "Type 'stdfn -h' to display this help message"
+    echo
+    echo "Author: clyde80"
+    echo "Website: https://github.com/clyde80"
     echo "Created on: November 28, 2016"
+    echo "Updated on: December 22, 2016"
 }
 
 # Check the amount of arguments.
@@ -33,17 +55,17 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-rename_files=false      # Whether or not to rename files
-rename_folders=false    # Whether or not to rename folders
-dry_run=false           # Whether or not to change anything
-prefix=''               # The prefix to use when renaming files
-folder=''               # The folder containing the files to rename
+rename_files=false      # Whether or not to rename files.
+rename_folders=false    # Whether or not to rename folders.
+dry_run=false           # Whether or not to change anything.
+prefix=''               # The prefix to use when renaming files.
+folder=''               # The folder containing the files to rename.
 separator='_'           # The separator between the prefix and the number.
 
 # Renames files.
 rename_files() {
     counter=1
-    for f in `find $folder -maxdepth 1 -type f`; do
+    for f in $(find $folder -maxdepth 1 -type f); do
         if [ $counter -lt 10 ]; then
             mv -v $f "$(dirname $f)/$(echo $prefix$separator`echo 0`$counter.${f##*.})"
         else
@@ -56,10 +78,7 @@ rename_files() {
 # Renames folders.
 rename_folders() {
     counter=1
-
-    # Needs to be $folder/* so it will only get the folders inside of $folder
-    # and not $folder.
-    for f in `find $folder/* -maxdepth 1 -type d`; do
+    for f in $(find $folder/* -maxdepth 1 -type d); do
         if [ $counter -lt 10 ]; then
             mv -v $f "$(dirname $f)/$(echo $prefix$separator`echo 0`$counter)"
         else
@@ -72,7 +91,7 @@ rename_folders() {
 # Prints out the renamed file names (does not rename them).
 rename_files_dry_run() {
     counter=1
-    for f in `find $folder -maxdepth 1 -type f`; do
+    for f in $(find $folder -maxdepth 1 -type f); do
         if [ $counter -lt 10 ]; then
             echo "$prefix$separator`echo 0`$counter.${f##*.}"
         else
@@ -85,9 +104,7 @@ rename_files_dry_run() {
 # Prints out the renamed folder names (does not rename them).
 rename_folders_dry_run() {
     counter=1
-
-    # See lines 60-61
-    for f in `find $folder/* -maxdepth 1 -type d`; do
+    for f in $(find $folder/* -maxdepth 1 -type d); do
         if [ $counter -lt 10 ]; then
             echo "$prefix$separator`echo 0`$counter"
         else
@@ -97,19 +114,44 @@ rename_folders_dry_run() {
     done
 }
 
-# Parse the commands.
+# Parse the command line arguments.
 while [ $# -ne 0 ]; do
     case $1 in
         "-f"|"--files")
+            if [ "$rename_files" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             rename_files=true; shift;;
         "-F"|"--folders")
+            if [ "$rename_folders" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             rename_folders=true; shift;;
         "-d"|"--dry-run")
+            if [ "$dry_run" = true ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
             dry_run=true; shift;;
         "-p"|"--prefix")
-            shift; prefix=$1; shift;;
+            shift
+            if [ ! -z "$prefix" ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi 
+            prefix=$1; shift;;
         "-s"|"--separator")
-            shift; separator=$1; shift;;
+            shift
+            if [ ! "$separator" = "_" ]; then
+                echo "Duplicate option: $1"
+                exit 1
+            fi
+            separator=$1; shift;;
+        "-h"|"--help")
+            print_help
+            exit 0;;
         *)
             if [ $# -ne 1 ]; then
                 echo "Option $1 not found."
@@ -119,25 +161,23 @@ while [ $# -ne 0 ]; do
     esac
 done
 
-if $dry_run; then
-    if $rename_files; then
+if [ "$dry_run" = true ]; then
+    if [ "$rename_files" = true ]; then
         echo "Renaming files dry run"
         rename_files_dry_run
     fi
-    if $rename_folders; then
+    if [ "$rename_folders" = true ]; then
         echo "Renaming folders dry run"
         rename_folders_dry_run
     fi
     exit 0
 fi
-if $rename_files; then
+if [ "$rename_files" = true ]; then
     echo "Renaming files"
     rename_files
 fi
-if $rename_folders; then
+if [ "$rename_folders" = true ]; then
     echo "Renaming folders"
     rename_folders
 fi
-
-echo "Done"
 exit 0
