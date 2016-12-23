@@ -1,14 +1,21 @@
 #!/bin/bash
-BATPERC=$(acpi --battery | cut -d, -f2)
-BATPERC=${BATPERC//"%"/""}
-if [ $BATPERC -gt 75 ]; then
-    echo " $BATPERC%"
-elif [ $BATPERC -le 75 -a $BATPERC -gt 50 ]; then
-    echo " $BATPERC%"
-elif [ $BATPERC -le 50 -a $BATPERC -gt 25 ]; then
-    echo " $BATPERC%"
-elif [ $BATPERC -le 25 -a $BATPERC -gt 10 ]; then
-    echo " $BATPERC%"
+#
+# Prints how full the systems battery is as a percentage. 
+#
+# Author: clyde80
+# Website: https://github.com/clyde80
+# Updated on: December 22, 2016
+#
+batperc=$(acpi --battery | cut -d , -f 2)
+batperc=${batperc//"%"/""}
+if [ $batperc -gt 75 ]; then
+    echo " $batperc%"
+elif [ $batperc -le 75 -a $batperc -gt 50 ]; then
+    echo " $batperc%"
+elif [ $batperc -le 50 -a $batperc -gt 25 ]; then
+    echo " $batperc%"
+elif [ $batperc -le 25 -a $batperc -gt 10 ]; then
+    echo " $batperc%"
 else 
-    echo " $BATPERC%"
+    echo " $batperc%"
 fi
