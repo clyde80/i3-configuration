@@ -1,8 +1,15 @@
 #!/bin/bash
-OUTPUT=$(nmcli -t -f active,ssid dev wifi | grep "yes")
-if [ ! -z "$OUTPUT" ]; then
-    OUTPUT=${OUTPUT//"yes:"/""}
-    echo " $OUTPUT"
+#
+# Prints the connected wifi network using NetworkManager CLI (nmcli)
+#
+# Author: clyde80
+# Website: https://github.com/clyde80
+# Updated on: December 22, 2016
+#
+output=$(nmcli -t -f active,ssid dev wifi | grep "yes")
+if [ ! -z "$output" ]; then
+    output=${output//"yes:"/""}
+    echo " $output"
 else
     echo " Not Connected"
 fi

@@ -1,10 +1,20 @@
 #!/bin/bash
+#
+# A script that converts a video to a gif.
+#
+# More information at: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+# 
 if [ $# -ne 3 ]; then
     echo "Usage: gifenc [input file] [output file] [scale-width]"
+    echo
+    echo "  [scale-width]   The width of the GIF (height is calculated)"
+    echo
+    echo "For more information, go to:"
+    echo "http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html"
     exit 0
 fi
-palette="/tmp/palette.png"
 
+palette="/tmp/palette.png"
 filters="fps=15,scale=$3:-1:flags=lanczos"
 
 ffmpeg -v warning -i $1 -vf "$filters,palettegen" -y $palette
