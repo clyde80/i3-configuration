@@ -31,7 +31,8 @@ Terminal transparency: <a href="https://github.com/chjj/compton">Compton</a><br>
 <a href="https://www.musicpd.org/clients/mpc/">MPC</a><br>
 <a href="https://github.com/ranger/ranger">Ranger</a><br>
 <a href="https://github.com/vim/vim">Vim</a><br>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/stylish/">Stylish Firefox Add-on</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/stylish/">Stylish Firefox Add-on</a><br>
+<a href="https://github.com/inbasic/turbo-download-manager">Turbo Download Manager</a>
 
 <h2>Other configurations</h2>
 https://github.com/clyde80/i3-configuration/releases
