@@ -20,8 +20,8 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #121116; --bg-dark: #121116;
-    --fg-light: #00ff8d; --fg-dark: #FFFFFF;
+    --bg-light: #0D0A0B; --bg-dark: #0D0A0B;
+    --fg-light: #DCC48E; --fg-dark: #DCC48E;
     --tab-triangle-correction: -1px;
     --tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: 2px; --tab-overlap: -5px;
     --tab-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
@@ -29,9 +29,9 @@
     --tab-triangle: none;  /* block | none */ 
 
     /* URL VARIABLES */
-    --url-background: #121116; --url-color: var(--fg-dark);
+    --url-background: #0D0A0B; --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 6px;
-    --url-fonts: "Raleway", "Source Sans Pro", "Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
+    --url-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
     --url-text-align: left; /* left | center | right */ /* Align where the text in the URL is. */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
@@ -54,7 +54,7 @@
     /* Close button on tabs. */
     .tab-close-button::before {
         content: "x" !important;
-        color: var(--fg-light);
+        color: #98473E !important;
     }
     
     * { box-sizing: border-box !important; }
@@ -66,7 +66,7 @@
         background: transparent !important; 
         margin: 0 0 0 0 !important; 
         width: 24px !important; 
-        color: #AAAAAA !important;
+        color: var(--fg-light) !important;
         padding-left: 11px !important;
     }
     .tabs-newtab-button::before { 
@@ -135,11 +135,13 @@
     #back-button::before {
         content: "<" !important; 
         left: 0px !important; 
+        color: var(--fg-light);
     }
     
     #forward-button::before {
         content: ">" !important;
         left: calc(var(--url-height) + 8px) !important; 
+        color: var(--fg-light);
     }
     
     /* Padding on the URL bar. Uncomment if wanting to use --url-text-align left.*/
@@ -350,7 +352,7 @@
     scrollbar[orient='vertical'] > slider { background: #FFFFFF !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #121116 !important; border: 0 !important; width: 100% !important;
+        background: #0D0A0B !important; border: 0 !important; width: 100% !important;
     }
     
     /* #FFFFFF is the background color for the horizontal scrollbar.*/
@@ -358,7 +360,7 @@
     scrollbar[orient='horizontal'] > slider { background: #FFFFFF !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #121116 !important; border: 0 !important; height: 100% !important;
+        background: #0D0A0B !important; border: 0 !important; height: 100% !important;
     }
     
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }

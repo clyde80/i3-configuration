@@ -1,13 +1,13 @@
 # i3-configuration
 My i3 configuration files
 
-Current Theme: Winter
+Current Theme: Dark
 
-Current config pictures: http://imgur.com/gallery/CNCaK
+Current config pictures: Need to be uploaded
 
 Check the CHANGELOG for recent changes
 
-<h2>Dependencies</h2>
+<h1>Dependencies</h1>
 
 <h3>Fonts</h3>
 
@@ -27,6 +27,8 @@ Terminal transparency: <a href="https://github.com/chjj/compton">Compton</a><br>
 <a href="https://github.com/DaveDavenport/rofi">Rofi</a><br>
 <a href="https://github.com/geommer/yabar">Yabar</a><br>
 <a href="https://github.com/cmus/cmus">Cmus</a><br>
+<a href="https://www.musicpd.org/">MPD</a><br>
+<a href="https://www.musicpd.org/clients/mpc/">MPC</a><br>
 <a href="https://github.com/ranger/ranger">Ranger</a><br>
 <a href="https://github.com/vim/vim">Vim</a><br>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/stylish/">Stylish Firefox Add-on</a>
