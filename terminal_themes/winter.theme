@@ -1,7 +1,0 @@
-[Scheme]
-Name=Winter
-ColorForeground=#FFFFFF
-ColorBackground=#121116
-ColorCursor=#FFFFFF
-ColorPalette=rgb(18,17,22);rgb(255,0,94);rgb(0,255,141);rgb(255,255,95);rgb(24,172,255);rgb(255,0,238);rgb(0,255,141);rgb(255,255,255);rgb(46,52,54);rgb(255,0,94);rgb(136,255,202);rgb(255,255,95);rgb(179,228,255);rgb(255,165,249);rgb(133,255,201);rgb(255,255,255)
-TabActivityColor=#FF005E

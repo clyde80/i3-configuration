@@ -90,13 +90,13 @@ bindsym --release $mod+Shift+l exec runrofi.sh
 bindsym --release Print exec scrot
 
 # Increase the volume
-bindsym XF86AudioRaiseVolume exec vol -r -b
+bindsym XF86AudioRaiseVolume exec vol -r -b 1
 
 # Decrease the volume
-bindsym XF86AudioLowerVolume exec vol -l -b
+bindsym XF86AudioLowerVolume exec vol -l -b 1
 
 # Toggle mute/unmute of the volume
-bindsym XF86AudioMute exec vol -m -b
+bindsym XF86AudioMute exec vol -m -b 1
 
 # Increase screen brightness by 5
 bindsym XF86MonBrightnessUp exec backlight -u 5
@@ -192,25 +192,26 @@ bindsym $mod+r mode "resize"
 
 # Window Borders
 # Client Class              <border>    <background>    <text>      <indicator>     <child_border>
-client.focused              #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
-client.focused_inactive     #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
-client.unfocused            #FFFFFF     #FFFFFF         #E1D3A4     #FFFFFF         #FFFFFF
-client.urgent               #BE0E29     #BE0E29         #E1D3A4     #BE0E29         #BE0E29
-client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
-client.background           #FFFFFF
-for_window [class="^.*"] border pixel 5px
+#client.focused              #FFC26C     #FFC26C         #2B2F3E     #FFC26C         #FFC26C
+#client.focused_inactive     #FFC26C     #FFC26C         #2B2F3E     #FFC26C         #FFC26C
+#client.unfocused            #FFC26C     #FFC26C         #2B2F3E     #FFC26C         #FFC26C
+#client.urgent               #FF1B3F     #FF1B3F         #2B2F3E     #FF1B3F         #FF1B3F
+#client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
+#client.background           #FFFFFF
+#for_window [class="^.*"] border pixel 5px
+for_window [class="^.*"] border pixel 0
 
-gaps outer 5
+gaps outer 10
 gaps inner 5
 
 # Allow clicking witht the touchpad
 exec --no-startup-id synclient TapButton1=1
 
 # Start compton
-exec --no-startup-id compton -b
+# exec --no-startup-id compton -b
 
 # Set the background
-exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/01.jpg
+exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/06.jpg
 
 # Start yabar
 exec --no-startup-id yabar

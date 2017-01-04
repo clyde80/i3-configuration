@@ -6,8 +6,16 @@
 # Author: clyde80
 # Website: https://github.com/clyde80
 # Created on: November 27, 2016
-# Updated on: December 22, 2016
+# Updated on: December 27, 2016
 #
+# Handle spaces in file names.
+IFS=$'\n'
+
+rename_files=false      # Whether or not to rename files.
+rename_folders=false    # Whether or not to rename folders.
+dry_run=false           # Whether to rename anything or only print output.
+folder=''               # The folder containing the files and folders to be renamed.
+
 print_help() {
     echo "Usage: stdtf [options] folder"
     echo
@@ -22,21 +30,41 @@ print_help() {
     echo "Author: clyde80"
     echo "Website: https://github.com/clyde80"
     echo "Created on: November 27, 2016"
-    echo "Updated on: December 22, 2016"
+    echo "Updated on: December 27, 2016"
+}
+
+# Renames folders in a directory.
+rename_folders() {
+    for f in $(find $folder/* -maxdepth 1 -type d); do
+        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
+    done
+}
+
+# Renames files in a directory.
+rename_files() {
+    for f in $(find $folder -maxdepth 1 -type f); do
+        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
+    done
+}
+
+# Print out the changed folder names but do not change anything.
+rename_folders_dry_run() {
+    for f in $(find $folder/* -maxdepth 1 -type d); do
+        echo $(basename $f) | tr 'A-Z ' 'a-z_'
+    done
+}
+
+# Print out the changed file names but do not change anything.
+rename_files_dry_run() {
+    for f in $(find $folder -maxdepth 1 -type f); do
+        echo $(basename $f) | tr 'A-Z ' 'a-z_'
+    done
 }
 
 if [ $# -eq 0 ]; then
     print_help
     exit 0;
 fi
-
-# Handle spaces in file names.
-IFS=$'\n'
-
-rename_files=false      # Whether or not to rename files.
-rename_folders=false    # Whether or not to rename folders.
-dry_run=false           # Whether to rename anything or only print output.
-folder=''               # The folder containing the files and folders to be renamed.
 
 # Parse the command arguments.
 while [ $# -ne 0 ]; do
@@ -76,33 +104,6 @@ if [ -z "$folder" ]; then
     exit 1
 fi
 
-# Renames folders in a directory.
-rename_folders() {
-    for f in $(find $folder/* -maxdepth 1 -type d); do
-        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
-    done
-}
-
-# Renames files in a directory.
-rename_files() {
-    for f in $(find $folder -maxdepth 1 -type f); do
-        mv -v $f "$(dirname $f)/$(echo $(basename $f) | tr 'A-Z ' 'a-z_')"
-    done
-}
-
-# Print out the changed folder names but do not change anything.
-rename_folders_dry_run() {
-    for f in $(find $folder/* -maxdepth 1 -type d); do
-        echo $(basename $f) | tr 'A-Z ' 'a-z_'
-    done
-}
-
-# Print out the changed file names but do not change anything.
-rename_files_dry_run() {
-    for f in $(find $folder -maxdepth 1 -type f); do
-        echo $(basename $f) | tr 'A-Z ' 'a-z_'
-    done
-}
 
 # Rename files, folders, or do a dry run.
 if [ "$dry_run" = true ]; then
