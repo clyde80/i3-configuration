@@ -1,41 +1,47 @@
 /*
- * Main Colors Used:
- *
- * White: #FFFFFF
- * Black: #121116
- * Green: #00FF8D
- *
- * Colors were found using GPick.
- *
  * Written by: clyde80 on November 21, 2016
- * Website: github.com/clyde80
+ * Edited by: clyde80 on December 18, 2016
+ * Website: https://www.github.com/clyde80
+ *
+ * Colors were found using GPick (http://www.gpick.org/)
+ *
+ * Main colors used:
+ *
+ * Beige: #DCC48E
+ * Black: #0D0A0B
+ * Green: #227461
+ *
+ * Main font used:
+ *
+ * Raleway (https://fonts.google.com/specimen/Raleway)
  */
-
 html, body {
     text-align: center;
     margin: 0;
-    padding: auto;
     font-family: "Raleway", "Arial", "Sans";
 }
 
 body {
     padding-top: 7%;
-    background-color: #121116;
+    background-color: #0D0A0B;
 }
 
 /* Style the search field. */
 #search_field {    
-    background-color: #121116;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    background-color: #0D0A0B;
+    color: #DCC48E;
+    border: 1px solid #DCC48E;
     width: 178px;
     padding: 10px 10px;
     margin-top: 1.6em;
     font-family: "Raleway", "Arial", "Sans";
 }
 
-/* Animations for the search field depend on how big the device is. 
-   Only do this if the screen width is greater or equal to 401px. */
+/* Transitions for the search field. Animate width, background color, and border
+ * color when the device width is greater than or equal to 401px. Only animate 
+ * border color and background color when the device width is less than or equal 
+ * to 400px. 
+ */
 @media screen and (min-width: 401px) {
     #search_field {
         transition: width 1s, border-color 1s, background-color 1s, color 1s;
@@ -44,58 +50,58 @@ body {
 
     #search_field:hover, #search_field:focus {
         width: 626px; /* 626 because of 1px border */
-        border-color: #00ff8d;
-        background-color: #00ff8d;
-        color: #121116;
+        border-color: #227461;
+        background-color: #227461;
+        color: #0D0A0B;
     }
 }
 
-/* If the device width is less than or equal to 400px, only animate
-   border color. */
+/* Transition border color and background color only. */
 @media screen and (max-width: 400px) {
     #search_field {
-        transition: border-color 0.5s;
-        -webkit-transition: border-color 0.5s;
+        transition: border-color 0.5s, background-color 0.5s;
+        -webkit-transition: border-color 0.5s, background-color 0.5s;
     }
 
     #search_field:focus, #search_field:hover {
         border-color: #820C1E;
+        background-color: #227461;
     }
 }
 /* End styling the search field. */
 
-/* Style the groups (things directly under the search bar). */
+/* Style the <div> rows that contain buttons. */
 .row {
     margin-top: 1.6em;
     margin-left: 10px;
     margin-right: 10px;
 }
+/* End styling the <div> rows that contain buttons. */
 
-.group-button {
+/* Style the buttons that are in the <div> rows. */
+button {
     width: 200px;
     display: inline-block;
     padding: 10px 5px;
     margin-left: 10px;
     margin-right: 10px;
-    border: 1px solid #FFFFFF;
-    background-color: #121116;
-    color: #FFFFFF;
+    border: 1px solid #DCC48E;
+    background-color: #0D0A0B;
+    color: #DCC48E;
+
+    /* Transitions on hover */
     transition: color 0.5s, border 0.5s, background-color 0.5s;
     -webkit-transition: color 0.5s, border 0.5s, background-color 0.5s;
 }
 
-.group-button:hover {
-    color: #121116;
-    border-color: #00ff8d;
-    background-color: #00ff8d;
+button:hover {
+    color: #0D0A0B;
+    border-color: #227461;
+    background-color: #227461;
 }
-/* Done styling the groups. */
+/* Done styling the buttons that are in the <div> rows. */
 
+/* Style the homepage title. */
 #title {
-    color: #FFFFFF;
-}
-
-a {
-    text-decoration: none;
-    color: #FFFFFF;
+    color: #DCC48E;
 }

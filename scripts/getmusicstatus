@@ -6,16 +6,32 @@
 # Used with yabar.
 #
 # Author: clyde80
-# Updated on: December 22, 2016
+# Updated on: December 29, 2016
 # Website: https://github.com/clyde80
 #
 output=$(cmus-remote -Q)
 if [ -z "$output" ]; then
-    echo "No Music Playing"
+    output=$(mpc)
+    if [ -z "$output" ]; then
+        echo "No Music Playing"
+    else
+        case $output in
+            *"paused"*)
+                echo "  $(mpc | head -1)";;
+            *)
+                output=$(mpc | head -1)
+                case $output in
+                    *"off"*)
+                        echo "No Music Playing";;
+                    *)
+                        echo " $output";;
+                esac;;
+        esac
+    fi
 else
     artist=$(cmus-remote -Q | grep "tag artist")
     artist=${artist//"tag artist "/""}
     title=$(cmus-remote -Q | grep "tag title")
     title=${title//"tag title "/""}
-    echo "   $artist - $title   "
+    echo " $artist - $title"
 fi
