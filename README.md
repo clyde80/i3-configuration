@@ -3,7 +3,9 @@ My i3 configuration files
 
 Current Theme: Dark
 
-Current config pictures: Need to be uploaded
+Current config pictures: http://imgur.com/gallery/vr3uC
+
+![Workflow](http://i.imgur.com/dG2NIis.gifv)
 
 Check the CHANGELOG for recent changes
 
