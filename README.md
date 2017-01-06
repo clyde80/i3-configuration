@@ -5,7 +5,7 @@ Current Theme: Dark
 
 Current config pictures: http://imgur.com/gallery/vr3uC
 
-![Workflow](http://i.imgur.com/dG2NIis.gifv)
+![Desktop Screenshot](http://i.imgur.com/czWFL0J.png)
 
 Check the CHANGELOG for recent changes
 
