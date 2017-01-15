@@ -28,7 +28,7 @@ def buildWorkspaceLine(workspaces):
     return workspaceLine
 
 def printData(data):
-    sys.stdout.write(data)
+    sys.stdout.write(data+"\n")
     sys.stdout.flush()
 
 i3 = i3ipc.Connection()
