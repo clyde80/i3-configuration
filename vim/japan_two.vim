@@ -1,8 +1,8 @@
 " Vim color file - dark.vim
 "
 " Created by: clyde80
-" Created on: November 23, 2026
-" Website: github.com/clyde80
+" Created on: January 18, 2017
+" Website: http://github.com/clyde80
 "
 set background=dark
 if version > 580
@@ -13,7 +13,7 @@ if version > 580
 endif
 
 set t_Co=256
-let g:colors_name = "dark"
+let g:colors_name = "japan_two"
 
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
@@ -41,22 +41,22 @@ hi Folded ctermfg=03 ctermbg=NONE cterm=NONE
 hi PreCondit ctermfg=02 ctermbg=NONE cterm=bold
 hi Include ctermfg=03 ctermbg=NONE cterm=NONE
 hi Float ctermfg=03 ctermbg=NONE cterm=NONE
-hi StatusLineNC ctermfg=08 ctermbg=03 cterm=bold
+hi StatusLineNC ctermfg=02 ctermbg=01 cterm=bold
 hi NonText ctermfg=03 ctermbg=NONE cterm=NONE
 hi DiffText ctermfg=NONE ctermbg=52 cterm=NONE
-hi ErrorMsg ctermfg=03 ctermbg=01 cterm=NONE
+hi ErrorMsg ctermfg=02 ctermbg=01 cterm=NONE
 hi Debug ctermfg=02 ctermbg=NONE cterm=NONE
 hi PMenuSbar ctermfg=NONE ctermbg=02 cterm=NONE
 hi Identifier ctermfg=03 ctermbg=NONE cterm=NONE
 hi SpecialChar ctermfg=03 ctermbg=NONE cterm=NONE
 hi Conditional ctermfg=02 ctermbg=NONE cterm=bold
 hi StorageClass ctermfg=03 ctermbg=NONE cterm=bold
-hi Todo ctermfg=02 ctermbg=03 cterm=NONE
+hi Todo ctermfg=07 ctermbg=01 cterm=bold
 hi Special ctermfg=03 ctermbg=NONE cterm=NONE
-hi LineNr ctermfg=03 ctermbg=NONE cterm=NONE
-hi StatusLine ctermfg=03 ctermbg=01 cterm=bold
+hi LineNr ctermfg=07 ctermbg=NONE cterm=NONE
+hi StatusLine ctermfg=02 ctermbg=01 cterm=bold
 hi Label ctermfg=02 ctermbg=NONE cterm=bold
-hi PMenuSel ctermfg=08 ctermbg=1 cterm=NONE
+hi PMenuSel ctermfg=01 ctermbg=02 cterm=NONE
 hi Search ctermfg=0 ctermbg=03 cterm=NONE
 hi Delimiter ctermfg=03 ctermbg=NONE cterm=NONE
 hi Statement ctermfg=02 ctermbg=NONE cterm=bold
@@ -67,8 +67,8 @@ hi TabLineSel ctermfg=0 ctermbg=03 cterm=bold
 hi Number ctermfg=02 ctermbg=NONE cterm=NONE
 hi Boolean ctermfg=02 ctermbg=NONE cterm=NONE
 hi Operator ctermfg=03 ctermbg=NONE cterm=bold
-hi TabLineFill ctermfg=03 ctermbg=02 cterm=bold
-hi WarningMsg ctermfg=03 ctermbg=02 cterm=NONE
+hi TabLineFill ctermfg=02 ctermbg=03 cterm=bold
+hi WarningMsg ctermfg=02 ctermbg=03 cterm=NONE
 hi VisualNOS ctermfg=08 ctermbg=189 cterm=underline
 hi DiffDelete ctermfg=NONE ctermbg=08 cterm=NONE
 hi ModeMsg ctermfg=02 ctermbg=NONE cterm=bold
@@ -86,7 +86,7 @@ hi Type ctermfg=01 ctermbg=NONE cterm=bold
 hi DiffChange ctermfg=NONE ctermbg=52 cterm=NONE
 hi Cursor ctermfg=0 ctermbg=03 cterm=NONE
 hi SpellLocal ctermfg=03 ctermbg=NONE cterm=underline
-hi Error ctermfg=03 ctermbg=01 cterm=NONE
+hi Error ctermfg=01 ctermbg=02 cterm=NONE
 hi PMenu ctermfg=08 ctermbg=66 cterm=NONE
 hi SpecialKey ctermfg=02 ctermbg=NONE cterm=NONE
 hi Constant ctermfg=03 ctermbg=NONE cterm=NONE
