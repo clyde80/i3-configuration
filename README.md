@@ -1,11 +1,11 @@
 # i3-configuration
 My i3 configuration files
 
-Current Theme: Dark
+Current Theme: Japan Two
 
-Current config pictures: http://imgur.com/gallery/vr3uC
+Current config pictures: http://imgur.com/a/BgXL9
 
-![Desktop Screenshot](http://i.imgur.com/czWFL0J.png)
+![Desktop Screenshot](http://i.imgur.com/sj967oV.png)
 
 Check the CHANGELOG for recent changes
 
@@ -29,6 +29,7 @@ Terminal transparency: <a href="https://github.com/chjj/compton">Compton</a><br>
 <a href="https://github.com/DaveDavenport/rofi">Rofi</a><br>
 <a href="https://github.com/geommer/yabar">Yabar</a><br>
 <a href="https://github.com/cmus/cmus">Cmus</a><br>
+<a href="https://github.com/karlstav/cava">CAVA</a><br>
 <a href="https://www.musicpd.org/">MPD</a><br>
 <a href="https://www.musicpd.org/clients/mpc/">MPC</a><br>
 <a href="https://github.com/ranger/ranger">Ranger</a><br>
