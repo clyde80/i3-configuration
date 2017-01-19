@@ -21,7 +21,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
-colo dark
+colo japan_two
 
 " Airline configuration
 " let g:airline#extensions#tabline#enabled = 1

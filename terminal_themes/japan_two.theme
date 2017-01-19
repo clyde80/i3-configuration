@@ -1,0 +1,7 @@
+[Scheme]
+Name=japan_two
+ColorForeground=#fff7c0
+ColorBackground=#0b0e1c
+ColorCursor=#fff7c0
+TabActivityColor=#fff7c0
+ColorPalette=rgb(11,14,28);rgb(241,116,104);rgb(255,247,192);rgb(255,126,74);rgb(241,116,104);rgb(181,121,131);rgb(241,116,104);rgb(255,247,192);rgb(112,24,49);rgb(241,116,104);rgb(255,247,192);rgb(255,126,74);rgb(241,116,104);rgb(181,121,131);rgb(241,116,104);rgb(255,247,192)
