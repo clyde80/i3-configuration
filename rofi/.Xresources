@@ -1,5 +1,20 @@
+! Rofi configuration
+rofi.modi: run
+
 rofi.color-enabled: true
-rofi.color-window: #0d0a0b, #0d0a0b, #0d0a0b
-rofi.color-normal: #0d0a0b, #dcc48e, #0d0a0b, #227461, #0d0a0b
-rofi.color-active: #0d0a0b, #dcc48e, #0d0a0b, #227461, #0d0a0b
-rofi.color-urgent: #98473e, #dcc48e, #98473e, #98473e, #dcc48e
+
+!                  Background   Foreground  Background Alternate    Highlight Background    Highlight Foreground
+rofi.color-window: #0B0E1C,     #F17468,    #0B0E1C     
+rofi.color-normal: #0B0E1C,     #ffe7cb,    #0B0E1C,                #F17468,                #0B0E1C
+rofi.color-active: #0B0E1C,     #ffe7cb,    #0B0E1C,                #F17468,                #0B0E1C
+rofi.color-urgent: #0B0E1C,     #ffee95,    #0B0E1C,                #ffee95,                #0B0E1C
+
+rofi.columns: 1
+rofi.fake-transparency: true
+rofi.hide-scrollbar: true
+rofi.disable-history: true
+rofi.bw: 0
+rofi.fullscreen: false
+rofi.lines: 5
+rofi.padding: 5
+rofi.separator-style: none

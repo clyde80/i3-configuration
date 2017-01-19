@@ -3,6 +3,27 @@ https://github.com/clyde80/i3-configuration/releases
 
 Logging started on November 08, 2016
 
+Changes in Japan Two theme
+    - Date: January 19, 2017
+
+1. Changed main colors to orange, light red, and kind of dark blue.
+2. Changed colors in CMUS.
+3. Add new terminal theme (japan_two.theme)
+    - Compressed dark.theme.
+4. Changed Yabar look to comply with main colors.
+5. Firefox:
+    - Firefox colors will be updated later.
+    - New stylish theme is being created.
+6. Change lightdm background photo.
+7. Updated ROFI to comply with main colors.
+8. Got rid of runrofi.sh
+    - Running Rofi is now handled in the i3 config file.
+    - Values for Rofi are set in the .Xresources file.
+9. Changed colors in top.
+10. This configuration uses Compton.
+
+--------------    
+
 Changes in Dark theme
     - Date: January 04, 2017
 
