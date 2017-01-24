@@ -40,3 +40,7 @@ battery -- Used to display the battery percentage in yabar. Icon displayed in ya
 monitor_workspaces.py -- Displays the open workspaces. Uses i3ipc.
 
 gifenc -- Script used to create GIFs out of screen recording. Found at http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+
+hdmi_autoconnect.sh -- Sets the dual monitor setup when an HDMI device is connected.
+
+rrename.sh -- Renames files within a directory to random names containing alphanumeric characters.

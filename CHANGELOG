@@ -22,6 +22,16 @@ Changes in Japan Two theme
 9. Changed colors in top.
 10. This configuration uses Compton.
 
+    Changes for Date: January 24, 2017
+
+11. Added udev rules to repository.
+    - Added rule to autoconnect to HDMI display upon HDMI connect
+        - hdmi.rules
+12. Added script to add HDMI display upon HDMI connect.
+    - scripts/hdmi_autoconnect.sh
+12. Added script that can randomly rename a bunch of files.
+    - scripts/rrename.sh
+
 --------------    
 
 Changes in Dark theme
