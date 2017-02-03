@@ -29,7 +29,7 @@ if [ -z "$output" ]; then
         esac
     fi
 else
-    artist=$(cmus-remote -Q | grep "tag artist")
+    artist=$(cmus-remote -Q | grep "tag artist ")
     artist=${artist//"tag artist "/""}
     title=$(cmus-remote -Q | grep "tag title")
     title=${title//"tag title "/""}
