@@ -12,8 +12,8 @@ Changes in Japan Two theme
     - Compressed dark.theme.
 4. Changed Yabar look to comply with main colors.
 5. Firefox:
-    - Firefox colors will be updated later.
-    - New stylish theme is being created.
+    - Firefox colors will NOT be updated later.
+    - New stylish theme is NOT being created for this theme.
 6. Change lightdm background photo.
 7. Updated ROFI to comply with main colors.
 8. Got rid of runrofi.sh
