@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -191,10 +191,10 @@ bindsym $mod+r mode "resize"
 # Window Borders
 # Client Class              <border>    <background>    <text>      <indicator>     <child_border>
 #client.focused              #DF1F3B     #DF1F3B         #2B2F3E     #DF1F3B         #DF1F3B
-client.focused              #0B0E1C     #0B0E1C         #2B2F3E     #0B0E1C         #0B0E1C
-client.focused_inactive     #0B0E1C     #0B0E1C         #2B2F3E     #0B0E1C         #0B0E1C
-client.unfocused            #0B0E1C     #0B0E1C         #2B2F3E     #0B0E1C         #0B0E1C
-client.urgent               #0B0E1C     #0B0E1C         #2B2F3E     #0B0E1C         #0B0E1C
+client.focused              #161916     #161916         #2B2F3E     #161916         #161916
+client.focused_inactive     #161916     #161916         #2B2F3E     #161916         #161916
+client.unfocused            #161916     #161916         #2B2F3E     #161916         #161916
+client.urgent               #161916     #161916         #2B2F3E     #161916         #161916
 client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
 client.background           #FFFFFF
 for_window [class="^.*"] border pixel 3px
@@ -210,7 +210,7 @@ exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton -b
 
 # Set the background
-exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/masashi_wakui/24248394492_77255b1f3e_k.jpg
+exec --no-startup-id feh --bg-tile /home/cat/Pictures/wallpapers/current/wallpaper_2.jpg
 
 # Start yabar
 exec --no-startup-id yabar

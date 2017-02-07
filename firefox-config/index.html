@@ -1,45 +1,51 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Homepage</title>
+        <title>Home</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">
-        <script type="text/javascript">
-            function goToAddress(url) {
-                window.location.href = url;
-            }
-        </script>
         <link rel="icon" href="favicon.png" type="image/icon">
     </head>
     <body>
-        <h1 id="title">Homepage</h1>
-        <script type="text/javascript">
-            function submit() {
-                window.location.href = "https://www.google.com/search?q=" + document.getElementById('search_field').value;
-            }
-        </script>
-        <form action="javascript: submit();">
-            <input id="search_field" type="text" name="search_term" placeholder="Search . . .">
-        </form>
-        <div class="row">
-            <button onclick="goToAddress('https://www.google.com');">Placeholder</button>
-            <button onclick="goToAddress('https://www.google.com');">Placeholder</button>
-            <button onclick="goToAddress('https://www.google.com');">Placeholder</button>
-        </div>
-        <div class="row">
-            <button onclick="goToAddress('https://www.archlinux.org/packages');">Arch Linux Packages</button>
-            <button onclick="goToAddress('https://wiki.archlinux.org');">Arch Linux Wiki</button>
-            <button onclick="goToAddress('https://aur.archlinux.org');">Arch User Repository</button>
-        </div>
-        <div class="row">
-            <button onclick="goToAddress('https://www.stackoverflow.com');">Stack Overflow</button>
-            <button onclick="goToAddress('https://www.github.com');">GitHub</button>
-            <button onclick="goToAddress('https://www.youtube.com');">YouTube</button>
-        </div>
-        <div class="row">
-            <button onclick="goToAddress('https://www.reddit.com/r/unixporn');">r/unixporn</button>
-            <button onclick="goToAddress('https://www.reddit.com/r/linux');">r/linux</button>
-            <button onclick="goToAddress('https://www.reddit.com/r/linuxcirclejerk');">r/linuxcirclejerk</button>
+        <div id="main-container">
+            <script type="text/javascript">
+                function submit() {
+                    window.location.href = "https://www.google.com/search?q=" + document.getElementById('search').value;
+                }
+            </script>
+            <div id="content-container">
+
+                <form action="javascript: submit();">
+                    <input id="search" type="text" placeholder="Search . . .">
+                </form>
+                <div id="column-container">
+                    <ul>
+                        <li>School</li>
+                        <li><a href="https://www.google.com">Placeholder</a></li>
+                        <li><a href="https://portal.mypearson.com/login">My MathLab</a></li>
+                        <li><a href="https://www.google.com">Placeholder</a></li>
+                    </ul>
+                    <ul>
+                        <li>Coding / Linux</li>
+                        <li><a href="https://github.com">Github</a></li>
+                        <li><a href="https://www.archlinux.org/packages">Arch Packages</a></li>
+                        <li><a href="https://wiki.archlinux.org">Arch Wiki</a></li>
+                        <li><a href="https://aur.archlinux.org">AUR</a></li>
+                    </ul>
+                    <ul>    
+                        <li>Media</li>
+                        <li><a href="https://youtube.com">Youtube</a></li>
+                        <li><a href="https://twitter.com">Twitter</a></li>
+                    </ul>
+                    <ul>
+                        <li>Reddit</li>
+                        <li><a href="https://reddit.com/r/unixporn">r/unixporn</a></li>
+                        <li><a href="https://reddit.com/r/LinuxCircleJerk">r/LinuxCircleJerk</a></li>
+                        <li><a href="https://reddit.com/r/Linux">r/Linux</a></li>
+                        <li><a href="https://reddit.com/r/LinuxQuestions">r/LinuxQuestions</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </body>
 </html>

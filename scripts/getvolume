@@ -2,34 +2,29 @@
 #
 # A script that will print the volume and an icon related to what the 
 # current audio output device is.
-#
-# Author: clyde80
-# Website: https://github.com/clyde80
-# Updated on: December 22, 2016
-#
 # Determine if the sound is muted or not.
-output=$(pacmd list-sinks | grep "active port")
-headphones=false
+OUTPUT=$(pacmd list-sinks | grep "active port")
+HEADPHONES=false
 
 # Check if the headphones are being used.
-case $output in
-    *"<analog-output-headphones>"*) headphones=true;;
+case $OUTPUT in
+    *"<analog-output-headphones>"*) HEADPHONES=true;;
 esac
 
 # Check if the sound is muted or not.
 if [ ! -z "$(amixer get Master | grep off)" ]; then
-    if [ "$headphones" = "true" ]; then
-        echo " Mute"
+    if [ "$HEADPHONES" = "true" ]; then
+        echo "H: Mute"
     else
-        echo " Mute"
+        echo "S: Mute"
     fi
 else
 
     # The sound is not muted get the volume and print it out.
     volume=$(amixer get Master | grep -o -E "[0-9]+%" | head -n 1)
-    if [ "$headphones" = true ]; then
-        echo " $volume"
+    if [ "$HEADPHONES" = true ]; then
+        echo "H: $volume"
     else
-        echo " $volume"
+        echo "S: $volume"
     fi
 fi

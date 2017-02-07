@@ -6,7 +6,7 @@
 # Used with yabar.
 #
 # Author: clyde80
-# Updated on: December 29, 2016
+# Updated on: February 07, 2017
 # Website: https://github.com/clyde80
 #
 output=$(cmus-remote -Q)
@@ -17,14 +17,14 @@ if [ -z "$output" ]; then
     else
         case $output in
             *"paused"*)
-                echo "  $(mpc | head -1)";;
+                echo "|| $(mpc | head -1)";;
             *)
                 output=$(mpc | head -1)
                 case $output in
                     *"off"*)
                         echo "No Music Playing";;
                     *)
-                        echo " $output";;
+                        echo "> $output";;
                 esac;;
         esac
     fi
@@ -33,5 +33,5 @@ else
     artist=${artist//"tag artist "/""}
     title=$(cmus-remote -Q | grep "tag title")
     title=${title//"tag title "/""}
-    echo " $artist - $title"
+    echo "> $artist - $title"
 fi

@@ -20,10 +20,4 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set number
-colo japan_two
-
-" Airline configuration
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
+colo minimal

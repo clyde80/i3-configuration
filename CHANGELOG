@@ -3,6 +3,69 @@ https://github.com/clyde80/i3-configuration/releases
 
 Logging started on November 08, 2016
 
+Changes in Minimal Red theme
+    - Date: February 07, 2017
+
+1. Changed main colors to Red, Orange and Black.
+
+2. Changed main font to "ypn envypn".
+    - This is a bitmap font. To use bitmap fonts in Firefox,
+      set gfx.font_rendering.fontconfig.fontlist.enabled to false in about:config.
+
+3. Changes to CMUS
+    - Removed some lines and highlighting.
+    - Changed status line for CMUS to display music selection as well as time.
+
+4. Changes to Scripts
+    - Changed PS1 in ~/.bashrc.
+        - Now displays as "user@host $PWD >> "
+    - Removed iconic characters from all scripts that are used in yabar.
+        - monitor_workspaces.py
+            - [#] denotes the focused workspace.
+            - <#> denotes the urgent workspace.
+            - # denotes a workspace number.
+        - getmusicstatus
+            - Thanks @johnfraney for fixing the "tag artistsort" bug.
+        - battery
+        - getwifinetwork
+            - Changed status for connected to "OK" and not connected to "NOT OK".
+        - getvolume
+            - S means speakers and H means headphones.
+    - Added condition in rrename.sh so it doesn't mess up your system.
+    - NOTE: To get older versions of these scripts without these changes,
+            see the file "/scripts/older_versions/Scripts.i3conf.v11.zip"
+
+5. Changes to Yabar configuration.
+    - Workspaces are now shown on the left.
+    - Increased size of music display area.
+    - Got rid of icons for date and time.
+
+5. Changes to VIM configuration
+    - Turned off line numbering for minimal purposes.
+    - Sort of organized the "minimal.vim" file.
+
+6. Changes to Firefox configuration
+    - Created Stylish theme for Firefox.
+        - Stylish theme for Turbo Download Manager will be made later (promise).
+    - Modified homepage.
+        - Got rid of buttons and made them links.
+        - Homepage content now displays in the middle of browser window.
+          No static values are used to try and do that now.
+
+7. Changes in i3 config file.
+    - Window borders are now 3px #161916.
+
+8. Changes to xfce4-terminal
+    - minimal.theme created.
+
+9. Changes to project
+    - Will start including the background image in repository.
+
+10. Changes to README.md
+    - Added link to "envypn" font.
+
+--------------    
+
 Changes in Japan Two theme
     - Date: January 19, 2017
 

@@ -1,10 +1,6 @@
 import i3ipc
 import sys
 
-focused_ws = ""
-urgent_ws = ""
-unfocused_ws = ""
-
 # Builds the workspace line.
 def buildWorkspaceLine(workspaces):
     workspaceLine = ''
@@ -13,17 +9,13 @@ def buildWorkspaceLine(workspaces):
 
     for ws in workspaces:
         wsnum += 1
-        divider = ' '
         
-        if wsnum >= numWorkspaces:
-            divider = ''
-
         if ws['focused']:
-            workspaceLine += focused_ws + divider
+            workspaceLine += " [" + str(wsnum) + "] "
         elif ws['urgent']:
-            workspaceLine += urgent_ws + divider
+            workspaceLine += " <" + str(wsnum) + "> "
         else:
-            workspaceLine += unfocused_ws + divider
+            workspaceLine += " " + str(wsnum) + " "
 
     return workspaceLine
 

@@ -1,7 +1,7 @@
 [Configuration]
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
-MiscBordersDefault=FALSE
+MiscBordersDefault=TRUE
 MiscCursorBlinks=TRUE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
@@ -15,12 +15,12 @@ MiscTabCloseButtons=TRUE
 MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
-FontName=Inconsolata 12
-ColorForeground=#fffff7f7c0c0
-ColorBackground=#0b0b0e0d1c1c
-ColorCursor=#fffff7f7c0c0
-ColorPalette=rgb(11,14,28);rgb(241,116,104);rgb(255,247,192);rgb(255,126,74);rgb(241,116,104);rgb(181,121,131);rgb(241,116,104);rgb(255,247,192);rgb(112,24,49);rgb(241,116,104);rgb(255,247,192);rgb(255,126,74);rgb(241,116,104);rgb(181,121,131);rgb(241,116,104);rgb(255,247,192)
-TabActivityColor=#fffff7f7c0c0
+FontName=ypn envypn 11
+ColorForeground=#fffffffffafa
+ColorBackground=#161619191616
+ColorCursor=#fffffffffafa
+ColorPalette=rgb(46,56,46);rgb(255,89,100);rgb(255,255,250);rgb(255,126,74);rgb(255,89,100);rgb(255,89,100);rgb(255,255,250);rgb(255,255,250);rgb(46,56,46);rgb(255,89,100);rgb(255,255,250);rgb(255,126,74);rgb(255,89,100);rgb(255,89,100);rgb(255,255,250);rgb(255,255,250)
+TabActivityColor=#fffffffffafa
 MiscBellUrgent=FALSE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
@@ -37,4 +37,7 @@ MiscUseShiftArrowsToScroll=FALSE
 TitleInitial=t3Rm1n4l
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+FontAllowBold=FALSE
+MiscCopyOnSelect=FALSE
+MiscSlimTabs=FALSE
 
