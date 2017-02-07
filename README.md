@@ -3,9 +3,9 @@ My i3 configuration files
 
 Current Theme: Japan Two
 
-Current config pictures: http://imgur.com/a/BgXL9
+Current config pictures: http://imgur.com/a/ykdM9
 
-![Desktop Screenshot](http://i.imgur.com/sj967oV.png)
+![Desktop Screenshot](http://i.imgur.com/EFYrwfr.png)
 
 Check the CHANGELOG for recent changes
 
