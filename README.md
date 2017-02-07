@@ -1,7 +1,7 @@
 # i3-configuration
 My i3 configuration files
 
-Current Theme: Japan Two
+Current Theme: Minimal Red
 
 Current config pictures: http://imgur.com/a/ykdM9
 
