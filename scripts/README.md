@@ -1,6 +1,14 @@
 # Scripts
 A collection of my bash scripts.
 
+<p>
+For older versions of scripts, checkout the files named "Scripts.i3conf.v#.zip" (located in the older_versions directory). 
+There was a drastic change from i3conf.v11 to what will be i3conf.v12 (i3conf.v12 hasn't been created yet). i3conf.v# 
+refers to the release tag. You can find the release tags on the releases page.
+</p>
+
+https://github.com/clyde80/i3-configuration/releases
+
 <h1>What do the scripts do?</h1>
 
 backlight -- A script that uses the "light" program to set the screen 

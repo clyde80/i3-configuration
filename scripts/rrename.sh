@@ -10,8 +10,13 @@
 # Author: clyde80
 # Website: https://github.con/clyde80
 # Created on: January 24, 2017
-# Updated on: January 24, 2017
+# Updated on: February 07, 2017
 #
+if [ $# -eq 0 ] || [ $1 -eq "-h" ]; then
+    echo "Usage: rrename.sh [directory]"
+    exit 1
+fi
+
 for f in $(find $1/* -type f); do
     echo "$f"
     filename=$(basename $f)

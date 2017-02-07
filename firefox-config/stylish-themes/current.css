@@ -20,18 +20,18 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #0D0A0B; --bg-dark: #0D0A0B;
-    --fg-light: #DCC48E; --fg-dark: #DCC48E;
+    --bg-light: #161916; --bg-dark: #161916;
+    --fg-light: #FFFFFA; --fg-dark: #FFFFFA;
     --tab-triangle-correction: -1px;
     --tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: 2px; --tab-overlap: -5px;
-    --tab-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
+    --tab-fonts: "ypn envypn","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
     --tab-text-align: left; /* left | center | right */ /* Align where the text on a tab is. */
     --tab-triangle: none;  /* block | none */ 
 
     /* URL VARIABLES */
-    --url-background: #0D0A0B; --url-color: var(--fg-dark);
+    --url-background: #161916; --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 6px;
-    --url-fonts: "Raleway","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
+    --url-fonts: "ypn envypn","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
     --url-text-align: left; /* left | center | right */ /* Align where the text in the URL is. */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
@@ -54,7 +54,7 @@
     /* Close button on tabs. */
     .tab-close-button::before {
         content: "x" !important;
-        color: #98473E !important;
+        color: #FF5964 !important;
     }
     
     * { box-sizing: border-box !important; }
@@ -349,18 +349,18 @@
     
     /* #FFFFFF is the background color for the vertical scrollbar. */
     scrollbar[orient="vertical"] { margin: 0 -5px 0 0 !important; }
-    scrollbar[orient='vertical'] > slider { background: #FFFFFF !important; max-width: 100% !important; }
+    scrollbar[orient='vertical'] > slider { background: #FFFFFA !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #0D0A0B !important; border: 0 !important; width: 100% !important;
+        background: #161916 !important; border: 0 !important; width: 100% !important;
     }
     
     /* #FFFFFF is the background color for the horizontal scrollbar.*/
     scrollbar[orient="horizontal"] { margin: 0 0 -5px 0 !important; }
-    scrollbar[orient='horizontal'] > slider { background: #FFFFFF !important; max-height: 100% !important; }
+    scrollbar[orient='horizontal'] > slider { background: #FFFFFA !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #0D0A0B !important; border: 0 !important; height: 100% !important;
+        background: #161916 !important; border: 0 !important; height: 100% !important;
     }
     
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }
@@ -400,3 +400,4 @@ tabbrowser tabpanels, #appcontent > #content { background: var(--bg-light) !impo
     input, textarea { color: #222628 !important; -moz-appearance: none !important; }
 }
 /**/
+

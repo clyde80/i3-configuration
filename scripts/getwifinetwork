@@ -8,8 +8,7 @@
 #
 output=$(nmcli -t -f active,ssid dev wifi | grep "yes")
 if [ ! -z "$output" ]; then
-    output=${output//"yes:"/""}
-    echo " $output"
+    echo "WIFI: OK"
 else
-    echo " Not Connected"
+    echo "WIFI: NOT OK"
 fi

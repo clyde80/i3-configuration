@@ -4,18 +4,8 @@
 #
 # Author: clyde80
 # Website: https://github.com/clyde80
-# Updated on: December 22, 2016
+# Updated on: February 06, 2017
 #
 batperc=$(acpi --battery | cut -d , -f 2)
 batperc=${batperc//"%"/""}
-if [ $batperc -gt 75 ]; then
-    echo " $batperc%"
-elif [ $batperc -le 75 -a $batperc -gt 50 ]; then
-    echo " $batperc%"
-elif [ $batperc -le 50 -a $batperc -gt 25 ]; then
-    echo " $batperc%"
-elif [ $batperc -le 25 -a $batperc -gt 10 ]; then
-    echo " $batperc%"
-else 
-    echo " $batperc%"
-fi
+echo "B:$batperc%"
