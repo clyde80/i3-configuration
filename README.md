@@ -3,9 +3,9 @@ My i3 configuration files
 
 Current Theme: Japan Two
 
-Current config pictures: http://imgur.com/a/BgXL9
+Current config pictures: http://imgur.com/a/ykdM9
 
-![Desktop Screenshot](http://i.imgur.com/sj967oV.png)
+![Desktop Screenshot](http://i.imgur.com/EFYrwfr.png)
 
 Check the CHANGELOG for recent changes
 
@@ -13,6 +13,7 @@ Check the CHANGELOG for recent changes
 
 <h3>Fonts</h3>
 
+<a href="https://github.com/Tecate/bitmap-fonts/tree/master/bitmap/envypn-font">Envypn (created by <a href="https://github.com/Ypnose">Ypnose</a>)</a><br>
 <a href="http://fontawesome.io/">Font-Awesome</a><br>
 <a href="https://fonts.google.com/specimen/Inconsolata">Inconsolata</a><br>
 <a href="https://fonts.google.com/specimen/Raleway">Raleway</a><br>

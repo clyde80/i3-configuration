@@ -14,10 +14,10 @@ set color_cmdline_fg=white
 set color_cur_sel_attr=default
 set color_error=red
 set color_info=lightblue
-set color_separator=yellow
+set color_separator=red
 set color_statusline_attr=default
-set color_statusline_bg=red
-set color_statusline_fg=black
+set color_statusline_bg=default
+set color_statusline_fg=white
 set color_titleline_attr=bold
 set color_titleline_bg=default
 set color_titleline_fg=yellow
@@ -25,22 +25,22 @@ set color_win_attr=default
 set color_win_bg=default
 set color_win_cur=yellow
 set color_win_cur_sel_attr=default
-set color_win_cur_sel_bg=red
-set color_win_cur_sel_fg=white
+set color_win_cur_sel_bg=default
+set color_win_cur_sel_fg=red
 set color_win_dir=red
 set color_win_fg=white
 set color_win_inactive_cur_sel_attr=default
 set color_win_inactive_cur_sel_bg=default
-set color_win_inactive_cur_sel_fg=red
+set color_win_inactive_cur_sel_fg=yellow
 set color_win_inactive_sel_attr=default
 set color_win_inactive_sel_bg=default
-set color_win_inactive_sel_fg=red
+set color_win_inactive_sel_fg=yellow
 set color_win_sel_attr=default
-set color_win_sel_bg=white
-set color_win_sel_fg=black
+set color_win_sel_bg=default
+set color_win_sel_fg=red
 set color_win_title_attr=default
-set color_win_title_bg=red
-set color_win_title_fg=black
+set color_win_title_bg=default
+set color_win_title_fg=yellow
 set confirm_run=true
 set continue=true
 set device=/dev/cdrom
@@ -52,14 +52,14 @@ set dsp.ao.wav_counter=1
 set dsp.ao.wav_dir=/home/cat
 set dsp.oss.device=
 set follow=false
-set format_current= %a - %l -%3n. %t%= %y 
-set format_playlist= %-21%a %3n. %t%= %y %d %{?X!=0?%3X ?    }
-set format_playlist_va= %-21%A %3n. %t (%a)%= %y %d %{?X!=0?%3X ?    }
-set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}- %{total} %{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolume} ?%{volume} }}%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%=%{?repeat_current?repeat current?%{?play_library?%{playlist_mode} from %{?play_sorted?sorted }library?playlist}} | %1{continue}%1{follow}%1{repeat}%1{shuffle} 
-set format_title=%a - %l - %t (%y)
-set format_trackwin=%3n. %t%= %y %d 
+set format_current=
+set format_playlist= %-26%a %t%= %d 
+set format_playlist_va= %-21%A %t%= %d 
+set format_statusline= %{status} %a - %t %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }}- %{total} %{?volume>=0?vol: %{?lvolume!=rvolume?%{lvolume},%{rvolume} ?%{volume} }}%{?stream?buf: %{buffer} }%{?show_current_bitrate & bitrate>=0? %{bitrate} kbps }%= | %1{continue}%1{follow}%1{repeat}%1{shuffle} 
+set format_title=
+set format_trackwin= %t%= %d 
 set format_trackwin_album= %l 
-set format_trackwin_va=%3n. %t (%a)%= %y %d 
+set format_trackwin_va= %t%= %d 
 set format_treewin=  %l
 set format_treewin_artist=%a
 set icecast_default_charset=ISO-8859-1

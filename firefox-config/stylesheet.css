@@ -1,107 +1,81 @@
-/*
- * Written by: clyde80 on November 21, 2016
- * Edited by: clyde80 on December 18, 2016
- * Website: https://www.github.com/clyde80
+/* 
+ * Minimal Firefox Homepage
  *
- * Colors were found using GPick (http://www.gpick.org/)
+ * Author: clyde80
+ * Website: https://github.com/clyde80
+ * Created on: February 05, 2017
+ * Updated on: February 06, 2017
  *
- * Main colors used:
+ * Colors:
+ * Red: #FF5964
+ * Orange: #FF7E4A
+ * White: #FFFFFA
+ * Black: #161916
  *
- * Beige: #DCC48E
- * Black: #0D0A0B
- * Green: #227461
- *
- * Main font used:
- *
- * Raleway (https://fonts.google.com/specimen/Raleway)
  */
 html, body {
-    text-align: center;
     margin: 0;
-    font-family: "Raleway", "Arial", "Sans";
+    padding: 0;
+    background-color: #161916;
+    color: #FFFFFA;
 }
 
-body {
-    padding-top: 7%;
-    background-color: #0D0A0B;
-}
-
-/* Style the search field. */
-#search_field {    
-    background-color: #0D0A0B;
-    color: #DCC48E;
-    border: 1px solid #DCC48E;
-    width: 178px;
-    padding: 10px 10px;
-    margin-top: 1.6em;
-    font-family: "Raleway", "Arial", "Sans";
-}
-
-/* Transitions for the search field. Animate width, background color, and border
- * color when the device width is greater than or equal to 401px. Only animate 
- * border color and background color when the device width is less than or equal 
- * to 400px. 
+/* 
+ * Use the following code to center stuff in browser window in future.
+ *
+ * Source: (https://www.w3.org/Style/Examples/007/center-example)
  */
-@media screen and (min-width: 401px) {
-    #search_field {
-        transition: width 1s, border-color 1s, background-color 1s, color 1s;
-        -webkit-transition: width 1s, border-color 1s, background-color 1s, color 1s;
-    }
-
-    #search_field:hover, #search_field:focus {
-        width: 626px; /* 626 because of 1px border */
-        border-color: #227461;
-        background-color: #227461;
-        color: #0D0A0B;
-    }
+#main-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: table;
 }
 
-/* Transition border color and background color only. */
-@media screen and (max-width: 400px) {
-    #search_field {
-        transition: border-color 0.5s, background-color 0.5s;
-        -webkit-transition: border-color 0.5s, background-color 0.5s;
-    }
-
-    #search_field:focus, #search_field:hover {
-        border-color: #820C1E;
-        background-color: #227461;
-    }
+#content-container {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
 }
-/* End styling the search field. */
+/* End of centering stuff in browser window. */
 
-/* Style the <div> rows that contain buttons. */
-.row {
-    margin-top: 1.6em;
-    margin-left: 10px;
-    margin-right: 10px;
+#search {
+    width: 400px;
+    padding: 5px 5px;
+    border: 1px solid #161916;
+    border-bottom: 1px solid #848687;
+    color: #E4E6E8;
+    background-color: #161916;
+    font-family: "ypn envypn";
+    transition: color 0.5s, background-color 0.5s, border 0.5s;
+    -webkit-transition: color 0.5s, background-color 0.5s, border 0.5s;
 }
-/* End styling the <div> rows that contain buttons. */
 
-/* Style the buttons that are in the <div> rows. */
-button {
-    width: 200px;
+#search:focus {
+    color: #FFFFFA;
+    background-color: #161916;
+    border: 1px solid #FFFFFA;
+}
+
+#column-container ul {
     display: inline-block;
-    padding: 10px 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border: 1px solid #DCC48E;
-    background-color: #0D0A0B;
-    color: #DCC48E;
-
-    /* Transitions on hover */
-    transition: color 0.5s, border 0.5s, background-color 0.5s;
-    -webkit-transition: color 0.5s, border 0.5s, background-color 0.5s;
+    padding: 10px;
+    list-style-type: none;
+    vertical-align: top;
 }
 
-button:hover {
-    color: #0D0A0B;
-    border-color: #227461;
-    background-color: #227461;
+#column-container ul li:first-child {
+    color: #FF7E4A;
 }
-/* Done styling the buttons that are in the <div> rows. */
 
-/* Style the homepage title. */
-#title {
-    color: #DCC48E;
+#column-container ul li a {
+    color: #FFFFFA;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+#column-container ul li a:hover {
+    color: #FF5964;
 }
