@@ -4,7 +4,24 @@ https://github.com/clyde80/i3-configuration/releases
 Logging started on November 08, 2016
 
 Changes in Minimal Red theme
-    - Date: February 07, 2017
+    - Date: February 12, 2017
+
+1. Changed coding syntax in scripts.
+    - Using "[[" instead of "[".
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Usage message in code is much cleaner.
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Added directions for dealing with bugs.
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Updates to individual scripts.
+        - getvolume 
+            - Added support for HDMI.
+            - Changed coding style to have constants for each device.
+                - 1 = speakers, 2 = headphones, 3 = HDMI.
+        - rmemptydirs
+            - Modified code to disiplay help message.
+        
+----- Date: February 07, 2017 -----
 
 1. Changed main colors to Red, Orange and Black.
 
@@ -64,7 +81,7 @@ Changes in Minimal Red theme
 10. Changes to README.md
     - Added link to "envypn" font.
 
---------------    
+-------------- 
 
 Changes in Japan Two theme
     - Date: January 19, 2017

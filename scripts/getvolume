@@ -1,30 +1,56 @@
 #!/bin/bash
 #
-# A script that will print the volume and an icon related to what the 
-# current audio output device is.
-# Determine if the sound is muted or not.
-OUTPUT=$(pacmd list-sinks | grep "active port")
-HEADPHONES=false
+# A script that prints the volume of the current audio output device.
+#
+# DEPENDENCIES:
+#   PulseAudio, Alsa
+#
+# Usage: 
+#   getvolume
+#
+# Author: clyde80
+# Website: https://github.com/clyde80/i3-configuration
+# Updated on: February 12, 2017
+#
+# To file a bug report, create an issue on Github:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
 
-# Check if the headphones are being used.
-case $OUTPUT in
-    *"<analog-output-headphones>"*) HEADPHONES=true;;
+# Constants for the speaker, headphones, and HDMI.
+readonly O_SPEAKER=1
+readonly O_HEADPHONES=2
+readonly O_HDMI=3
+
+device=0
+
+# Find the audio output device in use.
+active_device=$(pacmd list-sinks | grep "active port")
+
+# Find the audio output device.
+case $active_device in
+    *"speaker"*) device=$O_SPEAKER ;;
+    *"headphones"*) device=$O_HEADPHONES ;;
+    *"hdmi"*) device=$O_HDMI ;;
 esac
 
-# Check if the sound is muted or not.
-if [ ! -z "$(amixer get Master | grep off)" ]; then
-    if [ "$HEADPHONES" = "true" ]; then
-        echo "H: Mute"
-    else
-        echo "S: Mute"
-    fi
+# Check if the sound is muted.
+if [[ ! -z "$(amixer get Master | grep off)" ]]; then
+    case $device in
+        $O_SPEAKER) echo "S: Mute" ;;
+        $O_HEADPHONES) echo "H: Mute" ;;
+        $O_HDMI) echo "HDMI: Mute" ;;
+        *) echo "Unknown Constant" ;; # We don't know the output device.
+    esac
 else
 
-    # The sound is not muted get the volume and print it out.
+    # The sound is not muted, so print the volume.
     volume=$(amixer get Master | grep -o -E "[0-9]+%" | head -n 1)
-    if [ "$HEADPHONES" = true ]; then
-        echo "H: $volume"
-    else
-        echo "S: $volume"
-    fi
+    case $device in
+        $O_SPEAKER) echo "S: $volume" ;;
+        $O_HEADPHONES) echo "H: $volume" ;;
+        $O_HDMI) echo "HDMI: $volume" ;;
+        *) echo "Uknown Constant" ;; # We don't know the output device.
+    esac
 fi
