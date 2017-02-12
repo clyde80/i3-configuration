@@ -55,10 +55,6 @@ function mttd {
     mv "$@" -t /media/ENTRTAIN/Videos/transfer
 }
 
-function rm {
-    mv "$@" -t ~/.local/share/Trash/files
-}
-
 function cttd {
     for f in $(find "/media/ENTRTAIN/Videos/transfer/" ! -name "index.php"); do
         rm $f
