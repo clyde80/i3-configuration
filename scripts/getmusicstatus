@@ -5,27 +5,37 @@
 #
 # Used with yabar.
 #
+# DEPENDENCIES:
+#   Must have CMUS or MPC and MPD installed.
+#
+# USAGE:
+#   getmusicstatus
+#
 # Author: clyde80
-# Updated on: February 07, 2017
+# Updated on: February 12, 2017
 # Website: https://github.com/clyde80
 #
+# To file a bug report, create an issue on Github:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
 output=$(cmus-remote -Q)
-if [ -z "$output" ]; then
+if [[ -z "$output" ]]; then
     output=$(mpc)
-    if [ -z "$output" ]; then
+    if [[ -z "$output" ]]; then
         echo "No Music Playing"
     else
         case $output in
-            *"paused"*)
-                echo "|| $(mpc | head -1)";;
+            *"paused"*) echo "|| $(mpc | head -1)" ;;
             *)
                 output=$(mpc | head -1)
                 case $output in
-                    *"off"*)
-                        echo "No Music Playing";;
-                    *)
-                        echo "> $output";;
-                esac;;
+                    *"off"*) echo "No Music Playing" ;;
+                    *) echo "> $output" ;;
+                esac
+                ;;
         esac
     fi
 else
