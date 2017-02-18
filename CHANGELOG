@@ -4,7 +4,11 @@ https://github.com/clyde80/i3-configuration/releases
 Logging started on November 08, 2016
 
 Changes in Minimal Red theme
-    - Date: February 12, 2017
+    - February 17, 2017
+
+1. Add makealbum script to scripts directory.
+
+----- Date: February 12, 2017 -----
 
 1. Changed coding syntax in scripts.
     - Using "[[" instead of "[".
