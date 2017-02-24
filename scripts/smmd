@@ -1,35 +1,53 @@
 #!/bin/bash
 #
-# Sets up a dual monitor configuration with the second monitor to the left of
-# the first. 
+# DESCRIPTION:
 #
-# To use this script, you will most likely have to modify it to your liking.
-# 
+#   Set a dual monitor display (HDMI and main display).
+#
+# DEPENDENCIES:
+#
+#   xorg-xrandr, feh
+#
 # Author: clyde80
 # Website: https://github.com/clyde80
 # Created on: November 30, 2016
-# Updated on: December 22, 2016
+# Updated on: February 23, 2017
 #
-print_help(){
-    echo "Sets the output display for a multimonitor setup"
-    echo
-    echo "Usage: smmd -[sr]"
-    echo
-    echo "-s    --set       Sets the multi-monitor display"
-    echo "-r    --reset     Resets the display"
-    echo
-    echo "Type 'smmd -h' to display this help message"
-    echo
-    echo "Author: clyde80"
-    echo "Website: https://github.com/clyde80"
-    echo "Created on: November 30, 2016"
-    echo "Updated on: December 22, 2016"
-}
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
+readonly USAGE="Usage: $(basename "$0") [-s r]
+
+DESCRIPTION
+
+    Set a dual monitor display (HDMI and main display)
+
+OPTIONS
+
+    -s      --set       Set the dual monitor display
+    -r      --reset     Resets the dual monitor display to a single monitor display
+
+    -h      --help      Display this help method
+
+Author: clyde80
+Website: https://github.com/clyde80/i3-configuration
+Created on: November 30, 2016
+Updated on: February 23, 2017
+
+To file a bug report, create an issue on GitHub:
+https://github.com/clyde80/i3-configuration/issues
+
+To submit a bug fix, create a pull request on the working branch:
+https://github.com/clyde80/i3-configuration/tree/working"
 
 case $1 in
     "-h"|"--help")
-        print_help
-        exit 0;;
+        echo "$USAGE"
+        exit 0
+        ;;
     "-s"|"--set")
 
         # Set the multi monitor display. HDMI-1 is the name of the second 
@@ -46,11 +64,12 @@ case $1 in
 
         # Set the background image again because the background image is messed
         # up when adding another screen.
-        feh --bg-scale /home/cat/Pictures/wallpapers/06.jpg
+        feh --bg-fill /home/cat/Pictures/wallpapers/current/current.png
 
         # Set the audio output to HDMI
         sao -d
-        exit 0;;
+        exit 0
+        ;;
     "-r"|"--reset")
 
         # Set the main display to LVDS-1. Again, you can find names of the 
@@ -62,13 +81,15 @@ case $1 in
 
         # Set the background image again because the background image is 
         # messed up when turning off the screen.
-        feh --bg-scale /home/cat/Pictures/wallpapers/06.jpg
+        feh --bg-scale /home/cat/Pictures/wallpapers/current/current.png
 
         # Set the audio output to speaker.
         sao -s
-        exit 0;;
+        exit 0
+        ;;
     *)
         echo "Option $1 not found"
-        print_help
-        exit 1;;
+        echo "$USAGE"
+        exit 1
+        ;;
 esac

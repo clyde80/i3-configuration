@@ -1,18 +1,18 @@
 #!/bin/bash
 #
-# A script that prints the volume of the current audio output device.
+# DESCRIPTION:
+#
+#   Print the volume of the active audio output device.
 #
 # DEPENDENCIES:
-#   PulseAudio, Alsa
 #
-# Usage: 
-#   getvolume
+#   PulseAudio, Alsa
 #
 # Author: clyde80
 # Website: https://github.com/clyde80/i3-configuration
-# Updated on: February 12, 2017
+# Updated on: February 22, 2017
 #
-# To file a bug report, create an issue on Github:
+# To file a bug report, create an issue on GitHub:
 # https://github.com/clyde80/i3-configuration/issues
 #
 # To submit a bug fix, create a pull request on the working branch:
@@ -25,10 +25,8 @@ readonly O_HDMI=3
 
 device=0
 
-# Find the audio output device in use.
+# Find the current audio output device.
 active_device=$(pacmd list-sinks | grep "active port")
-
-# Find the audio output device.
 case $active_device in
     *"speaker"*) device=$O_SPEAKER ;;
     *"headphones"*) device=$O_HEADPHONES ;;
@@ -51,6 +49,6 @@ else
         $O_SPEAKER) echo "S: $volume" ;;
         $O_HEADPHONES) echo "H: $volume" ;;
         $O_HDMI) echo "HDMI: $volume" ;;
-        *) echo "Uknown Constant" ;; # We don't know the output device.
+        *) echo "Unknown Constant" ;; # We don't know the output device.
     esac
 fi
