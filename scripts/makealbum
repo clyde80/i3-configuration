@@ -4,34 +4,30 @@
 #
 #   Split an audio file into multiple files.
 #
-#
 # DEPENDENCIES:
 #
 #   ffmpeg, GNU Date
 #
-#
-# USAGE:
-#
-#   View "makealbum -h" or USAGE below.
-#
-#
 # Author: clyde80
-# Website: https://github.com/clyde80
+# Website: https://github.com/clyde80/i3-configuration
 # Created on: January 31, 2017
-# Updated on: February 17, 2017
+# Updated on: February 22, 2017
 #
-# To file a bug report, create an issue on Github:
+# To file a bug report, create an issue on GitHub:
 # https://github.com/clyde80/i3-configuration/issues
 #
 # To submit a bug fix, create a pull request on the working branch:
 # https://github.com/clyde80/i3-configuration/tree/working
 
 #USAGE MESSAGE
-readonly USAGE="Usage: $(basename $0) [-h] file [-s] [-l -t time] time1 time2 time#
+readonly USAGE="Usage: $(basename $0) [-h] file [-s] [-l] [-t time] time1 time#
 
-Split an audio file into multiple files.
+DESCRIPTION
+
+    Split an audio file into multiple files.
 
 OPTIONS
+
     -h          Display this help message.
     -s          Split based on start times.
     -l          Split based on audio clip lengths.
@@ -41,7 +37,7 @@ OPTIONS
     file        The file to split.
     time#       The start time or length of each audio clip.
 
-    ALL TIMES NEED TO BE IN ##:## (MM:SS) or ##:##:## (HH:MM:SS) format.
+    All times need to be formatted as ##:## (MM:SS) or ##:##:## (HH:MM:SS).
 
 EXAMPLES
 
@@ -64,7 +60,7 @@ Website: https://github.com/clyde80/i3-configuration
 Created on: January 31, 2017
 Updated on: February 17, 2017
 
-To file a bug report, create an issue on Github:
+To file a bug report, create an issue on GitHub:
 https://github.com/clyde80/i3-configuration/issues
 
 To submit a bug fix, create a pull request on the working branch:

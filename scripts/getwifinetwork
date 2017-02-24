@@ -1,19 +1,19 @@
 #!/bin/bash
 #
-# Prints the connected wifi network using NetworkManager CLI (nmcli)
+# DESCRIPTION:
+# 
+#   Print the WIFI connection status.
 #
 # DEPENDENCIES:
-#   NetworkManager
 #
-# Usage:
-#   getwifinetwork
+#   networkmanager
 #
 # Author: clyde80
-# Website: https://github.com/clyde80
+# Website: https://github.com/clyde80/i3-configuration
 # Created On: December 22, 2016
-# Updated On: February 12, 2017
+# Updated On: February 22, 2017
 #
-# To file a bug report, create an issue on Github:
+# To file a bug report, create an issue on GitHub:
 # https://github.com/clyde80/i3-configuration/issues
 #
 # To submit a bug fix, create a pull request on the working branch:

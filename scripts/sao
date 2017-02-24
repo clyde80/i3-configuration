@@ -1,18 +1,32 @@
 #!/bin/bash
-# 
-# Sets the audio output device to Headphones, Speaker, or HDMI.
-# 
-# Dependencies:
+#
+# DESCRIPTION:
+#
+#   Set the audio output device to headphones, speakers, or HDMI.
+#
+# DEPENDENCIES:
+#
 #   PulseAudio
 #
 # Author: clyde80
-# Website: https://github.com/clyde80
+# Website: https://github.com/clyde80/i3-configuration
 # Created on: November 30, 2016
-# Updated on: February 12, 2017
+# Updated on: February 23, 2017
+#
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
 
-usage="Usage: $(basename "$0") [-h] [-e s d t] -- Sets the audio output device
+readonly USAGE="Usage: $(basename "$0") [-h] [-e s d t]
+
+DESCRIPTION
+
+    Set the audio output device
 
 OPTIONS
+
     -e      --headphones    Sets the audio output device to headphones
     -s      --speaker       Sets the audio output device to speakers
     -d      --hdmi          Sets the audio output device to HDMI
@@ -20,33 +34,33 @@ OPTIONS
 
     -h      --help          Display this help message
 
-DEPENDENCIES
-    PulseAudio
-
 Author: clyde80
 Website: https://github.com/clyde80/i3-configuration
 Created on: November 30, 2016
-UPdated on: February 12, 2017
+UPdated on: February 23, 2017
 
-To file a bug report, create an issue on Github:
+To file a bug report, create an issue on GitHub:
 https://github.com/clyde80/i3-configuration/issues
 
 To submit a bug fix, create a pull request on the working branch:
 https://github.com/clyde80/i3-configuration/tree/working"
 
+# Get the sink port being used.
+get_sink_port() {
+    echo "$(pacmd list-sinks | grep index | grep -o '[0-9]*')"
+}
+
 # Set the audio output device to headphones.
 set_output_to_headphones() {
     pactl set-card-profile 0 output:analog-stereo
-    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" \
-        analog-output-headphones
+    pacmd set-sink-port $(get_sink_port) analog-output-headphones
     exit 0
 }
 
 # Set the audio output device to speakers.
 set_output_to_speakers() {
     pactl set-card-profile 0 output:analog-stereo
-    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" \
-        analog-output-speaker
+    pacmd set-sink-port $(get_sink_port) analog-output-speaker
     exit 0
 }
 
@@ -58,7 +72,7 @@ set_output_to_hdmi() {
 
 # Parse the command line arguments.
 case $1 in
-    "-h"|"--help") echo "$usage"; exit 0 ;;
+    "-h"|"--help") echo "$USAGE"; exit 0 ;;
     "-e"|"--headphones") set_output_to_headphones ;;
     "-s"|"--speaker") set_output_to_speakers ;;
     "-d"|"--hdmi") set_output_to_hdmi ;;
@@ -78,7 +92,7 @@ case $1 in
         fi
         ;;
     *)
-        echo -e "Command $1 not found\n$usage"
+        echo -e "Command $1 not found\n$USAGE"
         exit 1
         ;;
 esac
