@@ -1,21 +1,107 @@
 #!/bin/bash
 #
-# A script that converts a video to a gif.
+# DESCRIPTION:
 #
-# More information at: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+#   Convert video to GIF.
+#   More information: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+#
+# DEPENDENCIES:
+#
+#   ffmpeg
+#
+# Author: The owner of the link above (Unknown)
+# Edited by: clyde80
+# Website: https://github.com/clyde80/i3-configuration
+# Updated on: February 25, 2017
 # 
-if [ $# -ne 3 ]; then
-    echo "Usage: gifenc [input file] [output file] [scale-width]"
-    echo
-    echo "  [scale-width]   The width of the GIF (height is calculated)"
-    echo
-    echo "For more information, go to:"
-    echo "http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html"
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
+readonly USAGE="Usage: $(basename "$0") [infile] [outfile] -s [scale-width] -f [fps]
+
+DESCRIPTION
+
+    Convert video to GIF.
+    More information: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+
+OPTIONS
+
+    [infile]            The file to convert
+    [outfile]           The name of the resulting GIF
+
+    -s [scale-width]    The width of the resulting GIF
+    -f [fps]            The FPS of the resulting GIF
+
+Author: The owner of the link above (Unknown)
+Edited by: clyde80
+Website: https://github.com/clyde80/i3-configuration
+Updated on: February 25, 2017
+
+To file a bug report, create an issue on GitHub:
+https://github.com/clyde80/i3-configuration/issues
+
+To submit a bug fix, create a pull request on the working branch:
+https://github.com/clyde80/i3-configuration/tree/working"
+
+if [[ $# -eq 0 || "$1" = "-h" || $# -eq 1 ]]; then
+    echo "$USAGE"
     exit 0
 fi
 
-palette="/tmp/palette.png"
-filters="fps=15,scale=$3:-1:flags=lanczos"
+IFS=$'\n'
+SCALE_WIDTH=300     # Default GIF width.
+FPS=30              # Default FPS of output GIF.
 
-ffmpeg -v warning -i $1 -vf "$filters,palettegen" -y $palette
-ffmpeg -v warning -i $1 -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $2
+# Make sure the user provided a valid file.
+if [[ ! -f "$1" ]]; then
+    echo -e "\e[31m$1 is not a valid file.\e[39m"
+    exit 1
+else
+    readonly INFILE="$1"
+fi
+    
+shift
+
+# Check if the user provided the .gif extension.
+if [[ ! "$1" =~ \.gif$ ]]; then
+    readonly OUTFILE="$1.gif"
+else
+    readonly OUTFILE="$1"
+fi
+
+shift
+
+# Parse arguments.
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        "-s")
+            shift
+            SCALE_WIDTH=$1
+            shift
+            ;;
+        "-f")
+            shift
+            FPS=$1
+            shift
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
+
+# Palette file and filters.
+readonly PALETTE="/tmp/palette.png"
+readonly FILTERS="fps=$FPS,scale=$SCALE_WIDTH:-1:flags=lanczos"
+
+# Generate the color palette
+ffmpeg -v warning -i $INFILE -vf "$FILTERS,palettegen" -y $PALETTE
+
+# Convert the video to GIF
+ffmpeg -v warning -i $INFILE -i $PALETTE \
+    -lavfi "$FILTERS [x]; [x][1:v] paletteuse" \
+    -y $OUTFILE
