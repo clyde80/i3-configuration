@@ -10,7 +10,7 @@ Name: Minimal Red
 
 To see the changes between configurations, see the CHANGELOG.
 
-For the most recent changes, see the [working branch](https://github.com/clyde80/i3-congiruation/tree/working).
+For the most recent changes, see the [working branch](https://github.com/clyde80/i3-configuruation/tree/working).
 
 ## Older Configurations
 See the [releases page](https://github.com/clyde80/i3-configuration/releases) for older configurations.
