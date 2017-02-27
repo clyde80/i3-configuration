@@ -20,7 +20,7 @@
 # https://github.com/clyde80/i3-configuration/tree/working
 
 #USAGE MESSAGE
-readonly USAGE="Usage: $(basename $0) [-h] file [-s] [-l] [-t time] time1 time#
+readonly USAGE="Usage: $(basename "$0") [-h] file [-s] [-l] [-t time] time1 time#
 
 DESCRIPTION
 
@@ -45,11 +45,11 @@ EXAMPLES
 
     Split MusicFile.mp3 into separate files based on start times:
 
-    $(basename $0) MusicFile.mp3 -s 00:09 00:23 00:45
+    $(basename "$0") MusicFile.mp3 -s 00:09 00:23 00:45
 
     Split MusicFile.mp3 into separate files using audio clip lengths:
 
-    $(basename $0) MusicFile.mp3 -l -t 00:09 00:14 00:22 00:15
+    $(basename "$0") MusicFile.mp3 -l -t 00:09 00:14 00:22 00:15
 
     The two commands above do the same thing, they create three audio files. 
     The first file has a length of 14 seconds, second is 22 seconds, and the 
@@ -215,7 +215,7 @@ split_by_start_times() {
     while [[ $# -gt 1 ]]; do
         ffmpeg -i "$FILENAME" -ss $1 -t $(calculate_length_st $1 $2) \
             -acodec copy $count.$EXTENSION
-        count=$((count+1))
+        ((count++))
         shift
     done
 
@@ -253,7 +253,7 @@ split_by_lengths() {
             -acodec copy $count.$EXTENSION
         start_time=$(calculate_end_time_lt $start_time $1)
         shift
-        count=$((count+1))
+        ((count++))
     done
 
     print_green "Finished"
