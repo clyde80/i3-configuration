@@ -4,7 +4,12 @@ https://github.com/clyde80/i3-configuration/releases
 Logging started on November 08, 2016
 
 Changes in Minimal Red theme
-    - February 24, 2017
+    - February 26, 2017
+
+1. Add aliases to bashrc
+2. Update repository README.md
+
+----- Date: February 24, 2017 -----
 
 1. Updated gifenc script
     - Allow user to specify the width of the resulting GIF.
