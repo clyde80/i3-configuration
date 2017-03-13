@@ -52,3 +52,5 @@ gifenc -- Script used to create GIFs out of screen recording. Found at http://bl
 hdmi_autoconnect.sh -- Sets the dual monitor setup when an HDMI device is connected.
 
 rrename.sh -- Renames files within a directory to random names containing alphanumeric characters.
+
+makealbum -- Splits an audio recording into separate files.

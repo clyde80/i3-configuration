@@ -1,11 +1,23 @@
 #!/bin/bash
 #
-# Prints how full the systems battery is as a percentage. 
+# DESCRIPTION:
+#
+#   Print battery percentage of device.
+#
+# DEPENDENCIES:
+#
+#   acpi
 #
 # Author: clyde80
-# Website: https://github.com/clyde80
-# Updated on: February 06, 2017
+# Website: https://github.com/clyde80/i3-configuration
+# Updated on: February 22, 2017
 #
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
 batperc=$(acpi --battery | cut -d , -f 2)
 batperc=${batperc//"%"/""}
 echo "B:$batperc%"

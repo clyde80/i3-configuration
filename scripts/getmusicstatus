@@ -1,31 +1,38 @@
 #!/bin/bash
 #
-# Prints out the artist and song that is playing in Cmus using the cmus-remote
-# program. 
+# DESCRIPTION:
 #
-# Used with yabar.
+#   Print the artist and song name of the song playing in CMUS or MPD.
+#
+# DEPENDENCIES:
+#
+#   CMUS or MPD and MPC
 #
 # Author: clyde80
-# Updated on: February 07, 2017
-# Website: https://github.com/clyde80
+# Updated on: February 22, 2017
+# Website: https://github.com/clyde80/i3-configuration
 #
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
 output=$(cmus-remote -Q)
-if [ -z "$output" ]; then
+if [[ -z "$output" ]]; then
     output=$(mpc)
-    if [ -z "$output" ]; then
+    if [[ -z "$output" ]]; then
         echo "No Music Playing"
     else
         case $output in
-            *"paused"*)
-                echo "|| $(mpc | head -1)";;
+            *"paused"*) echo "|| $(mpc | head -1)" ;;
             *)
                 output=$(mpc | head -1)
                 case $output in
-                    *"off"*)
-                        echo "No Music Playing";;
-                    *)
-                        echo "> $output";;
-                esac;;
+                    *"off"*) echo "No Music Playing" ;;
+                    *) echo "> $output" ;;
+                esac
+                ;;
         esac
     fi
 else

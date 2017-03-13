@@ -1,42 +1,52 @@
 # i3-configuration
-My i3 configuration files
+Dotfiles
 
-Current Theme: Minimal Red
-
-Current config pictures: http://imgur.com/a/ykdM9
+## Current Configuration
+Name: Minimal Red
 
 ![Desktop Screenshot](http://i.imgur.com/EFYrwfr.png)
 
-Check the CHANGELOG for recent changes
+[More Pictures](https://imgur.com/a/ykdM9)
 
-<h1>Dependencies</h1>
+To see the changes between configurations, see the CHANGELOG.
 
-<h3>Fonts</h3>
+For the most recent changes, see the [working branch](https://github.com/clyde80/i3-configuruation/tree/working).
 
-<a href="https://github.com/Tecate/bitmap-fonts/tree/master/bitmap/envypn-font">Envypn</a> (created by <a href="https://github.com/Ypnose">Ypnose</a>)<br>
-<a href="http://fontawesome.io/">Font-Awesome</a><br>
-<a href="https://fonts.google.com/specimen/Inconsolata">Inconsolata</a><br>
-<a href="https://fonts.google.com/specimen/Raleway">Raleway</a><br>
+## Older Configurations
+See the [releases page](https://github.com/clyde80/i3-configuration/releases) for older configurations.
 
-<h3>Terminal</h3>
+## Contributing
+If you have a bug fix, or anything else that may be interesting, please use the [working branch](https://github.com/clyde80/i3-configuration/tree/working) and submit a pull request there.
 
-<a href="https://launchpad.net/xfce4-terminal">xfce4-terminal</a><br>
-Terminal transparency: <a href="https://github.com/chjj/compton">Compton</a><br>
+## Dependencies
 
-<h3>Others</h3>
+#### Current fonts
+- [Envypn ypn](https://github.com/Tecate/bitmap-fonts/tree/master/bitmap/envypn-font) created by [Ypnose](https://github.com/Ypnose)
+- [Font-Awesome](http://fontawesome.io/)
+- [Raleway](https://fonts.google.com/specimen/Raleway)
 
-<a href="https://github.com/Airblader/i3">i3-gaps</a><br>
-<a href="https://github.com/meskarune/i3lock-fancy">i3lock-fancy</a><br>
-<a href="https://github.com/DaveDavenport/rofi">Rofi</a><br>
-<a href="https://github.com/geommer/yabar">Yabar</a><br>
-<a href="https://github.com/cmus/cmus">Cmus</a><br>
-<a href="https://github.com/karlstav/cava">CAVA</a><br>
-<a href="https://www.musicpd.org/">MPD</a><br>
-<a href="https://www.musicpd.org/clients/mpc/">MPC</a><br>
-<a href="https://github.com/ranger/ranger">Ranger</a><br>
-<a href="https://github.com/vim/vim">Vim</a><br>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/stylish/">Stylish Firefox Add-on</a><br>
-<a href="https://github.com/inbasic/turbo-download-manager">Turbo Download Manager</a>
+#### Other fonts
+- [Inconsolata](https://fonts.google.com/specimen/Inconsolata)
 
-<h2>Other configurations</h2>
-https://github.com/clyde80/i3-configuration/releases
+#### Terminal
+- [XFCE4-Terminal](https://launchpad.net/xfce4-terminal) -- Terminal Emulator
+- [Compton](https://github.com/chjj/compton) (for shadows and terminal transparency)
+
+#### Others
+- [i3-gaps](https://github.com/Airblader/i3) -- Window Manager
+- [i3lock-fancy](https://github.com/meskarune/i3lock-fancy) -- Lock Screen
+- [Rofi](https://github.com/DaveDavenport/rofi) -- Application Launcher
+- [Yabar](https://github.com/geommer/yabar) -- Status bar
+- [CMUS](https://github.com/cmus/cmus) -- Music Player
+- [CAVA](https://github.com/karlstav/cava) -- Audio Visualizer
+- [MPD](https://www.musicpd.org/) -- Music Player Daemon *
+- [MPC](https://www.musicpd.org/clients/mpc/) -- MPD Client *
+- [Ranger](https://github.com/ranger/ranger) -- CLI File Manager
+- [Vim](https://github.com/vim/vim) -- Text Editor
+- [Stylish](https://addons.mozilla.org/en-US/firefox/addon/stylish/) -- Style Firefox +
+- [Turbo Download Manager](https://github.com/inbasic/turbo-download-manager) -- Download manager Add-on for Firefox.
+
+***
+\* Limited support in this repository
+
+\+ May or may not update in each release

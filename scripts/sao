@@ -1,41 +1,66 @@
 #!/bin/bash
-# 
-# Sets the audio output device to headphones, speaker, or HDMI using 
-# PulseAudio.
+#
+# DESCRIPTION:
+#
+#   Set the audio output device to headphones, speakers, or HDMI.
+#
+# DEPENDENCIES:
+#
+#   PulseAudio
 #
 # Author: clyde80
-# Website: https://github.com/clyde80
+# Website: https://github.com/clyde80/i3-configuration
 # Created on: November 30, 2016
-# Updated on: December 22, 2016
+# Updated on: February 23, 2017
 #
-print_help(){
-    echo "Sets the audio output device to headphones, speakers, or HDMI."
-    echo "Usage: sao -[esdt]"
-    echo 
-    echo "-e    --headphones    Sets the audio output to headphones"
-    echo "-s    --speaker       Sets the audio output to speakers"
-    echo "-d    --hdmi          Sets the audio output to HDMI"
-    echo "-t    --toggle        Toggle between headphones and speakers"
-    echo
-    echo "Type 'sao -h' to display this help message"
-    echo
-    echo "Author: clyde80"
-    echo "Website: https://github.com/clyde80"
-    echo "Created on: November 30, 2016"
-    echo "Updated on: December 22, 2016"
+# To file a bug report, create an issue on GitHub:
+# https://github.com/clyde80/i3-configuration/issues
+#
+# To submit a bug fix, create a pull request on the working branch:
+# https://github.com/clyde80/i3-configuration/tree/working
+
+readonly USAGE="Usage: $(basename "$0") [-h] [-e s d t]
+
+DESCRIPTION
+
+    Set the audio output device
+
+OPTIONS
+
+    -e      --headphones    Sets the audio output device to headphones
+    -s      --speaker       Sets the audio output device to speakers
+    -d      --hdmi          Sets the audio output device to HDMI
+    -t      --toggle        Toggle between headphones and speakers
+
+    -h      --help          Display this help message
+
+Author: clyde80
+Website: https://github.com/clyde80/i3-configuration
+Created on: November 30, 2016
+UPdated on: February 23, 2017
+
+To file a bug report, create an issue on GitHub:
+https://github.com/clyde80/i3-configuration/issues
+
+To submit a bug fix, create a pull request on the working branch:
+https://github.com/clyde80/i3-configuration/tree/working"
+
+# Get the sink port being used.
+get_sink_port() {
+    echo "$(pacmd list-sinks | grep index | grep -o '[0-9]*')"
 }
 
 # Set the audio output device to headphones.
 set_output_to_headphones() {
     pactl set-card-profile 0 output:analog-stereo
-    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-headphones
+    pacmd set-sink-port $(get_sink_port) analog-output-headphones
     exit 0
 }
 
 # Set the audio output device to speakers.
 set_output_to_speakers() {
     pactl set-card-profile 0 output:analog-stereo
-    pacmd set-sink-port "$(pacmd list-sinks | grep index | grep -o '[0-9]*')" analog-output-speaker
+    pacmd set-sink-port $(get_sink_port) analog-output-speaker
     exit 0
 }
 
@@ -47,26 +72,27 @@ set_output_to_hdmi() {
 
 # Parse the command line arguments.
 case $1 in
-    "-h"|"--help") print_help; exit 0;;
-    "-e"|"--headphones") set_output_to_headphones;;
-    "-s"|"--speaker") set_output_to_speakers;;
-    "-d"|"--hdmi") set_output_to_hdmi;;
+    "-h"|"--help") echo "$USAGE"; exit 0 ;;
+    "-e"|"--headphones") set_output_to_headphones ;;
+    "-s"|"--speaker") set_output_to_speakers ;;
+    "-d"|"--hdmi") set_output_to_hdmi ;;
     "-t"|"--toggle")
         # Get whether or not the headphones are being used.
         output=$(pacmd list-sinks | grep "active port")
         headphones=false
         case $output in
-                *"<analog-output-headphones>"*) headphones=true;;
+                *"<analog-output-headphones>"*) headphones=true ;;
         esac
 
         # Toggle between headphones and speakers.
-        if [ "$headphones" = true ]; then
+        if [[ "$headphones" = true ]]; then
             set_output_to_speakers
         else
             set_output_to_headphones
-        fi;;
+        fi
+        ;;
     *)
-        echo "Command $1 not found"
-        print_help
-        exit 1;;
+        echo -e "Command $1 not found\n$USAGE"
+        exit 1
+        ;;
 esac

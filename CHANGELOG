@@ -4,7 +4,44 @@ https://github.com/clyde80/i3-configuration/releases
 Logging started on November 08, 2016
 
 Changes in Minimal Red theme
-    - Date: February 07, 2017
+    - February 26, 2017
+
+1. Add aliases to bashrc
+2. Update repository README.md
+
+----- Date: February 24, 2017 -----
+
+1. Updated gifenc script
+    - Allow user to specify the width of the resulting GIF.
+    - Allow user to specify the FPS of the resulting GIF.
+
+----- Date: February 23, 2017 -----
+
+1. Change script headers to be consistent.
+2. Change script usage messages to be consistent.
+
+----- Date: February 17, 2017 -----
+
+1. Add makealbum script to scripts directory.
+
+----- Date: February 12, 2017 -----
+
+1. Changed coding syntax in scripts.
+    - Using "[[" instead of "[".
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Usage message in code is much cleaner.
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Added directions for dealing with bugs.
+        - getmusicstatus, getvolume, getwifinetwork, rmemptydirs, sao
+    - Updates to individual scripts.
+        - getvolume 
+            - Added support for HDMI.
+            - Changed coding style to have constants for each device.
+                - 1 = speakers, 2 = headphones, 3 = HDMI.
+        - rmemptydirs
+            - Modified code to disiplay help message.
+        
+----- Date: February 07, 2017 -----
 
 1. Changed main colors to Red, Orange and Black.
 
@@ -64,7 +101,7 @@ Changes in Minimal Red theme
 10. Changes to README.md
     - Added link to "envypn" font.
 
---------------    
+-------------- 
 
 Changes in Japan Two theme
     - Date: January 19, 2017
