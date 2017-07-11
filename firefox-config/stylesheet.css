@@ -7,17 +7,17 @@
  * Updated on: February 06, 2017
  *
  * Colors:
- * Red: #FF5964
- * Orange: #FF7E4A
- * White: #FFFFFA
- * Black: #161916
+ * Red: #A26A5B
+ * Yellow: #FAE8A4
+ * Green: #406158
+ * Black: #211716
  *
  */
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #161916;
-    color: #FFFFFA;
+    background-color: #211716;
+    color: #FAE8A4;
 }
 
 /* 
@@ -41,41 +41,63 @@ html, body {
 }
 /* End of centering stuff in browser window. */
 
+@media only screen and (min-width: 481px) {
+    #search {
+        width: 400px;
+    }
+
+    #column-container ul {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #search {
+        width: 300px;
+    }
+
+    #column-container ul {
+        display: block;
+    }
+}
+
 #search {
-    width: 400px;
     padding: 5px 5px;
-    border: 1px solid #161916;
+    border: 1px solid #211716;
     border-bottom: 1px solid #848687;
     color: #E4E6E8;
-    background-color: #161916;
+    background-color: #211716;
     font-family: "ypn envypn";
     transition: color 0.5s, background-color 0.5s, border 0.5s;
     -webkit-transition: color 0.5s, background-color 0.5s, border 0.5s;
 }
 
 #search:focus {
-    color: #FFFFFA;
-    background-color: #161916;
-    border: 1px solid #FFFFFA;
+    color: #F6C87A;
+    background-color: #211716;
+    border-bottom: 1px solid #F6C87A;
 }
 
 #column-container ul {
-    display: inline-block;
     padding: 10px;
     list-style-type: none;
     vertical-align: top;
 }
 
+#column-container ul li {
+    font-family: "ypn envypn";
+}
+
 #column-container ul li:first-child {
-    color: #FF7E4A;
+    color: #406158;
 }
 
 #column-container ul li a {
-    color: #FFFFFA;
+    color: #FAE8A4;
     font-size: 11px;
     text-decoration: none;
 }
 
 #column-container ul li a:hover {
-    color: #FF5964;
+    color: #A26A5B;
 }
