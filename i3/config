@@ -79,13 +79,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Lock screen
-bindsym --release $mod+l exec lock -pf Raleway -- scrot -z
+bindsym --release $mod+Control+Delete exec lock -pf Raleway -t "Enter Password" -- scrot -z
 
 # start rofi
 bindsym --release $mod+Shift+l exec rofi -show run
 
 # Capture a screenshot
-bindsym --release Print exec scrot
+bindsym --release Print exec scrot -e 'mv $f /home/cat/Pictures/screen_captures/'
+
+# Set layout 1
+bindsym $mod+Shift+Return workspace 1; append_layout .config/i3/workspace-1.json
 
 # Increase the volume
 bindsym XF86AudioRaiseVolume exec vol -r -b 1
@@ -103,13 +106,13 @@ bindsym XF86MonBrightnessUp exec backlight -u 5
 bindsym XF86MonBrightnessDown exec backlight -d 5
 
 # Toggle pause/play on the song that is currently paused or playing
-bindsym XF86AudioPlay exec togglepauseplay
+# bindsym XF86AudioPlay exec togglepauseplay
 
 # Switch to the next song
-bindsym XF86AudioNext exec cmus-remote -n
+# bindsym XF86AudioNext exec cmus-remote -n
 
 # Switch to the previous song
-bindsym XF86AudioPrev exec cmus-remote -r
+# bindsym XF86AudioPrev exec cmus-remote -r
 
 # Dropdown XFCE4 Terminal
 bindsym $mod+Control+d exec xfce4-terminal --drop-down 
@@ -153,10 +156,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -190,27 +193,32 @@ bindsym $mod+r mode "resize"
 
 # Window Borders
 # Client Class              <border>    <background>    <text>      <indicator>     <child_border>
-#client.focused              #DF1F3B     #DF1F3B         #2B2F3E     #DF1F3B         #DF1F3B
-client.focused              #161916     #161916         #2B2F3E     #161916         #161916
-client.focused_inactive     #161916     #161916         #2B2F3E     #161916         #161916
-client.unfocused            #161916     #161916         #2B2F3E     #161916         #161916
-client.urgent               #161916     #161916         #2B2F3E     #161916         #161916
-client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
-client.background           #FFFFFF
-for_window [class="^.*"] border pixel 3px
-#for_window [class="^.*"] border pixel 0
+#client.focused              #FFAF5B     #FFAF5B         #2B2F3E     #FFAF5B         #FFAF5B
+#client.focused_inactive     #FFAF5B     #FFAF5B         #2B2F3E     #FFAF5B         #FFAF5B
+#client.unfocused            #FFAF5B     #FFAF5B         #2B2F3E     #FFAF5B         #FFAF5B
+#client.urgent               #FFAF5B     #FFAF5B         #2B2F3E     #FFAF5B         #FFAF5B
+#client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
+#client.background           #FFFFFF
+#for_window [class="^.*"] border pixel 1px
+for_window [class="^.*"] border none
 
 gaps outer 10
 gaps inner 5
-
-# Allow clicking witht the touchpad
-exec --no-startup-id synclient TapButton1=1
 
 # Start compton
 exec --no-startup-id compton -b
 
 # Set the background
-exec --no-startup-id feh --bg-tile /home/cat/Pictures/wallpapers/current/wallpaper_2.jpg
+exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/dumps/dump_2/gLNJ6J1.jpg
 
 # Start yabar
 exec --no-startup-id yabar
+
+# Set screen blanking off
+exec --no-startup-id xset s off
+
+# Disable DPMS
+exec --no-startup-id xset -dpms
+
+# Allow clicking with touchpad
+exec --no-startup-id xinput set-prop 12 279 1
