@@ -1,1 +1,0 @@
-ACTION="change", SUBSYSTEM="drm", HOTPLUG="1", RUN+="/usr/local/bin/custom_scripts/hdmi_autoconnect.sh"

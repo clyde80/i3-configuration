@@ -13,7 +13,8 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:ypn envypn 18
+for_window [class=".*"] title_format "<span font='ypn envypn 8'> > %title</span>"
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -79,13 +80,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Lock screen
-bindsym --release $mod+l exec lock -pf Raleway -- scrot -z
+bindsym --release $mod+Control+Delete exec lock -pf Raleway -t "Enter Password" -- scrot -z
 
 # start rofi
 bindsym --release $mod+Shift+l exec rofi -show run
 
 # Capture a screenshot
-bindsym --release Print exec scrot
+bindsym --release Print exec scrot -e 'mv $f /home/cat/Pictures/screen_captures/'
+
+# Set layout 1
+bindsym $mod+Shift+Return workspace 1; append_layout .config/i3/workspace-1.json
 
 # Increase the volume
 bindsym XF86AudioRaiseVolume exec vol -r -b 1
@@ -103,13 +107,13 @@ bindsym XF86MonBrightnessUp exec backlight -u 5
 bindsym XF86MonBrightnessDown exec backlight -d 5
 
 # Toggle pause/play on the song that is currently paused or playing
-bindsym XF86AudioPlay exec togglepauseplay
+# bindsym XF86AudioPlay exec togglepauseplay
 
 # Switch to the next song
-bindsym XF86AudioNext exec cmus-remote -n
+# bindsym XF86AudioNext exec cmus-remote -n
 
 # Switch to the previous song
-bindsym XF86AudioPrev exec cmus-remote -r
+# bindsym XF86AudioPrev exec cmus-remote -r
 
 # Dropdown XFCE4 Terminal
 bindsym $mod+Control+d exec xfce4-terminal --drop-down 
@@ -153,10 +157,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -171,34 +175,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#        font pango: Inconsolata, FontAwesome 10
-#        colors {
-#        	background #FFFFFF
-#        	statusline #121116
-#        	separator #121116
-#        	focused_workspace #FFFFFF #FFFFFF #121116
-#        	active_workspace #FFFFFF #FFFFFF #121116
-#        	inactive_workspace #FFFFFF #FFFFFF #AAAAAA
-#        	urgent_workspace #FF005E #FF005E #121116
-#        }
-#        position top # Status bar at the top
-#}
-
 # Window Borders
 # Client Class              <border>    <background>    <text>      <indicator>     <child_border>
-#client.focused              #DF1F3B     #DF1F3B         #2B2F3E     #DF1F3B         #DF1F3B
-client.focused              #161916     #161916         #2B2F3E     #161916         #161916
-client.focused_inactive     #161916     #161916         #2B2F3E     #161916         #161916
-client.unfocused            #161916     #161916         #2B2F3E     #161916         #161916
-client.urgent               #161916     #161916         #2B2F3E     #161916         #161916
+client.focused              #FAE8A4     #FAE8A4         #211716     #FAE8A4         #FAE8A4
+client.focused_inactive     #FAE8A4     #FAE8A4         #211716     #FAE8A4         #FAE8A4
+client.unfocused            #FAE8A4     #FAE8A4         #211716     #FAE8A4         #FAE8A4
+client.urgent               #FAE8A4     #FAE8A4         #211716     #FAE8A4         #FAE8A4
 client.placeholder          #000000     #FFFFFF         #E1D3A4     #000000         #FFFFFF
 client.background           #FFFFFF
-for_window [class="^.*"] border pixel 3px
-#for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 1px
+for_window [class="^.*"] border normal 0
 
 gaps outer 10
 gaps inner 5
@@ -210,7 +196,15 @@ exec --no-startup-id synclient TapButton1=1
 exec --no-startup-id compton -b
 
 # Set the background
-exec --no-startup-id feh --bg-tile /home/cat/Pictures/wallpapers/current/wallpaper_2.jpg
+exec --no-startup-id feh --bg-fill /home/cat/Pictures/wallpapers/dumps/dump_2/gLNJ6J1.jpg
 
 # Start yabar
 exec --no-startup-id yabar
+
+# Set screen blanking off
+exec --no-startup-id xset s off
+
+# Disable DPMS
+exec --no-startup-id xset -dpms
+
+exec --no-startup-id xinput set-prop 12 279 1

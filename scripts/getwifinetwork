@@ -23,5 +23,10 @@ output=$(nmcli -t -f active,ssid dev wifi | grep "yes")
 if [[ ! -z "$output" ]]; then
     echo "WIFI: OK"
 else
-    echo "WIFI: NOT OK"
+    output=$(netctl list | grep "*" | grep -o -E "[a-zA-Z0-9-]")
+    if [[ ! -z "$output" ]]; then
+        echo "WIFI: OK"
+    else
+        echo "WIFI: NOT OK"
+    fi
 fi

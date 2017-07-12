@@ -2,11 +2,9 @@
 Dotfiles
 
 ## Current Configuration
-Name: Minimal Red
+Name: Amazing Sunset
 
-![Desktop Screenshot](http://i.imgur.com/EFYrwfr.png)
-
-[More Pictures](https://imgur.com/a/ykdM9)
+![Desktop Screenshot](http://i.imgur.com/rCw5yru.png)
 
 To see the changes between configurations, see the CHANGELOG.
 
@@ -39,6 +37,8 @@ If you have a bug fix, or anything else that may be interesting, please use the 
 - [Yabar](https://github.com/geommer/yabar) -- Status bar
 - [CMUS](https://github.com/cmus/cmus) -- Music Player
 - [CAVA](https://github.com/karlstav/cava) -- Audio Visualizer
+- [CliClock](https://github.com/clyde80/cliclock) -- Custom command line clock
+- [Pipes.sh](https://github.com/clyde80/pipes.sh) -- Custom pipes.sh script
 - [MPD](https://www.musicpd.org/) -- Music Player Daemon *
 - [MPC](https://www.musicpd.org/clients/mpc/) -- MPD Client *
 - [Ranger](https://github.com/ranger/ranger) -- CLI File Manager

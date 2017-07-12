@@ -5,10 +5,10 @@ rofi.color-enabled: true
 rofi.font: ypn envypn 10
 
 !                  Background   Foreground  Background Alternate    Highlight Background    Highlight Foreground
-rofi.color-window: #161916,     #fffffa,    #161916     
-rofi.color-normal: #161916,     #fffffa,    #161916,                #FF5964,                #161916
-rofi.color-active: #161916,     #fffffa,    #161916,                #FF5964,                #161916
-rofi.color-urgent: #FF5964,     #161916,    #FF5964,                #FF5964,                #161916
+rofi.color-window: #211716, #211716, #211716
+rofi.color-normal: #211716, #fae8a4, #211716, #fae8a4, #211716
+rofi.color-active: #406158, #fae8a4, #406158, #fae8a4, #211716
+rofi.color-urgent: #a26a5b, #fae8a4, #a26a5b, #fae8a4, #211716
 
 rofi.columns: 1
 rofi.fake-transparency: true
@@ -17,5 +17,5 @@ rofi.disable-history: true
 rofi.bw: 0
 rofi.fullscreen: false
 rofi.lines: 5
-rofi.padding: 5
+rofi.padding: 30
 rofi.separator-style: none

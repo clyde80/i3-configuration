@@ -1,7 +1,0 @@
-[Scheme]
-Name=minimal
-ColorForeground=#fffffa
-ColorBackground=#161916
-ColorCursor=#fffffa
-TabActivityColor=#fffffa
-ColorPalette=rgb(46,56,46);rgb(255,89,100);rgb(255,255,250);rgb(255,126,74);rgb(255,89,100);rgb(255,89,100);rgb(255,255,250);rgb(255,255,250);rgb(46,56,46);rgb(255,89,100);rgb(255,255,250);rgb(255,126,74);rgb(255,89,100);rgb(255,89,100);rgb(255,255,250);rgb(255,255,250)

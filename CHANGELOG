@@ -3,6 +3,50 @@ https://github.com/clyde80/i3-configuration/releases
 
 Logging started on November 08, 2016
 
+Changes in Amazing Sunset
+    - Date: July 12, 2017
+
+1. Add titlebars for i3
+2. Update README.md
+    - Change desktop screenshot
+    - Change theme name
+
+----- Date: July 11, 2017 -----
+
+1. Add amazing sunset theme
+2. Update xfce4-terminal terminalrc file
+3. Update Firefox homepage
+4. Update CMUS autosave file
+5. Delete most files that weren't used
+6. Update stylish theme
+7. Update i3config file
+8. Update toprc file
+9. Remove vim directory and add neovim directory
+    - Add neovim init file and amazing sunset colorscheme
+10. Add terminal padding for xfce4 terminal
+
+----- Date: July 07, 2017 -----
+
+1. Add netctl support to getwifinetwork script.
+
+----- Date: April 15, 2017 -----
+
+1. Remove clutter
+    - i3/i3status.conf
+    - rofi/runrofi.sh
+    - scripts/hdmi_autoconnect.sh
+    - udev_rules
+    - mpd/mpd.conf
+    - ncmpcpp/config
+    - firefox-config/stylish-themes/turbo-download-manager.css (compressed)
+2. Add some more configuration files
+    - gtk-3.0/gtk.css
+        - XFCE4 Terminal Padding
+    - Did I really already start making this theme? Oh boy. (July 07, 2017)
+3. Scripts
+    - Add netctl support to getwifinetwork.
+    
+
 Changes in Minimal Red theme
     - February 26, 2017
 

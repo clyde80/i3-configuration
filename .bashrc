@@ -6,10 +6,10 @@
 [[ $- != *i* ]] && return
 
 # Bash prompt
-PS1="┌─[\\W]───[\A]\\n└───▶ "
+PS1="┌─[\\H]───[\\W]───[\A]\\n└───▶ "
 
 # LS colors for "ls --color=auto"
-LS_COLORS="ow=43;34"
+LS_COLORS="ow=34"
 export LS_COLORS
 
 # Listing files.
@@ -27,38 +27,44 @@ alias lza='ls -l -h -S -a --color=auto'
 alias lma='ls --color=auto /media'
 
 # Normal Stuff
-alias v='vim'
+alias v='nvim'
 alias c='clear'
 alias e='exit'
 alias d='cd'
 alias pd='cd $OLDPWD'
+alias vim='nvim'
 
 # Displaying free and used space.
 alias dfree='df -h'
 alias dused='du -sh'
 
-# Configureation directories.
-alias dots='cd ~/Documents/coding/i3config/'
+# Configuration directories.
+alias dots='cd ~/Documents/coding/github/i3config/'
 alias scripts='cd ~/Documents/coding/i3config/scripts'
-alias e_xresources='vim ~/.Xresources && xrdb ~/.Xresources'
-alias e_i3config='vim ~/.config/i3/config'
-alias e_yabar='vim ~/.config/yabar/yabar.conf'
-alias vbrc='vim ~/.bashrc && . ~/.bashrc'
+alias e_xresources='nvim ~/.Xresources && xrdb ~/.Xresources'
+alias e_i3config='nvim ~/.config/i3/config'
+alias e_yabar='nvim ~/.config/yabar/yabar.conf'
+alias vbrc='nvim ~/.bashrc && . ~/.bashrc'
 
 # extra
 alias neofetch='neofetch --disable cpu gpu model resolution shell packages uptime theme icons kernel title @ underline --ascii_distro arch_small'
 alias cbrc='cat ~/.bashrc'
-alias ryabar='killall yabar && yabar &'
+alias ryabar='pkill yabar && yabar &'
 alias unmountdevices='sudo umount /media/*'
+
+# Loading i3 layouts for xfce terminal
+alias llayout1='i3-msg "workspace 1; append_layout .config/i3/workspace-1.json"'
 
 # Coding
 alias ctc='cd ~/Documents/coding'
 alias testing='cd ~/Documents/coding/testing'
+alias cheatsheets='cd ~/Documents/coding/resources/cheatsheets'
 
 # Bash coding stuff
 alias ctbd='cd ~/Documents/coding/bash/scripts'
 alias cbrh='cat ~/Documents/coding/bash/headers/brh'
-alias ebrh='vim ~/Documents/coding/bash/headers/brh'
+alias ebrh='nvim ~/Documents/coding/bash/headers/brh'
+alias gb='cd ~/Documents/coding/github'
 
 # Java
 alias ctjd='cd ~/Documents/coding/java'
@@ -105,16 +111,22 @@ alias restartserver='sudo systemctl restart httpd.service'
 alias serverstatus='systemctl status httpd.service'
 alias startdatabase='sudo systemctl start mariadb.service'
 alias stopdatabase='sudo systemctl stop mariadb.service'
-alias e_httpd_conf='sudo vim /etc/httpd/conf/httpd.conf'
-alias e_php_conf='sudo vim /etc/php/php.ini'
+alias dbstatus='sudo systemctl status mariadb.service'
+alias e_httpd_conf='sudo nvim /etc/httpd/conf/httpd.conf'
+alias e_php_conf='sudo nvim /etc/php/php.ini'
 alias server='cd /media/ENTRTAIN'
 alias youtube='cd /media/ENTRTAIN/youtube'
 alias upload='cd /media/ENTRTAIN/upload'
 alias transfer='cd /media/ENTRTAIN/root/Videos/transfer'
+alias pn='DISPLAY=:0 xdotool getactivewindow key space'
 
 # Download youtube video as mp3 using youtube-dl and ffmpeg.
 dl-youtube-mp3() {
     youtube-dl -x --audio-format mp3 --audio-quality 0 --prefer-ffmpeg $1
+}
+
+dl-youtube-playlist() {
+    youtube-dl --extract-audio --audio-format "${1}" -o "%(title)s.%(ext)s" "${2}"
 }
 
 # Make a directory and then change into it.
@@ -124,23 +136,47 @@ mkcd() {
     cd -- "$1"
 }
 
-# Set the background image.
-sb() {
-    if [[ $# -eq 1 ]]; then
-        cp $1 ~/Pictures/wallpapers/current/current.${1##*.}
-        feh --bg-fill ~/Pictures/wallpapers/current/current.${1##*.}
-        return
+# Move a file to a directory and then change into it.
+mvcd() {
+    mv "$@" || return
+    shift "$(( $# - 1 ))"
+    cd -- "$1"
+}
+
+# Copy a file to a directory and then change into it.
+cpcd() {
+    cp "$@" || return
+    shift "$(( $# - 1 ))"
+    cd -- "$1"
+}
+
+extract() {
+    if [[ -f $1 ]] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)  echo "'$1' cannot be extracted via extract()" ;;
+        esac
     else
-        cp $2 ~/Pictures/wallpapers/current/current.${2##*.}
+        echo "'$1' is not a valid file"
     fi
-   
-    case $1 in
-        "-c") feh --bg-center ~/Pictures/wallpapers/current/current.${2##*.} ;;
-        "-f") feh --bg-fill ~/Pictures/wallpapers/current/current.${2##*.} ;;
-        "-m") feh --bg-max ~/Pictures/wallpapers/current/current.${2##*.} ;;
-        "-s") feh --bg-scale ~/Pictures/wallpapers/current/current.${2##*.} ;;
-        "-t") feh --bg-tile ~/Pictures/wallpapers/current/current.${2##*.} ;;
-    esac
+}
+
+push() {
+    [[ $# -eq 0 ]] && return
+    dest=$1; shift;
+    for f in ${@}; do
+        adb push "${f}" "${dest}"
+    done
 }
 
 # Move file to the transfer directory

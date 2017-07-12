@@ -20,19 +20,19 @@
 
 :root {
     /* TAB VARIABLES */
-    --bg-light: #161916; --bg-dark: #161916;
-    --fg-light: #FFFFFA; --fg-dark: #FFFFFA;
+    --bg-light: #FAE8A4; --bg-dark: #211716;
+    --fg-light: #211716; --fg-dark: #FAE8A4;
     --tab-triangle-correction: -1px;
     --tab-height: 24px; --tab-icon-size: 16px; --tab-strip-margin: 2px; --tab-overlap: -5px;
-    --tab-fonts: "ypn envypn","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 11pt;
-    --tab-text-align: left; /* left | center | right */ /* Align where the text on a tab is. */
+    --tab-fonts: "ypn envypn","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --tab-font-size: 10pt;
+    --tab-text-align: center; /* left | center | right */ /* Align where the text on a tab is. */
     --tab-triangle: none;  /* block | none */ 
 
     /* URL VARIABLES */
-    --url-background: #161916; --url-color: var(--fg-dark);
+    --url-background: #211716; --url-color: var(--fg-dark);
     --url-height: 24px; --url-right-margin: 6px;
     --url-fonts: "ypn envypn","Source Sans Pro","Lemon",monospace,"Dejavu Sans"; --url-font-size: 10pt;
-    --url-text-align: left; /* left | center | right */ /* Align where the text in the URL is. */
+    --url-text-align: center; /* left | center | right */ /* Align where the text in the URL is. */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
 
@@ -42,25 +42,25 @@
     #back-button, #forward-button, #back-button *, #forward-button *, #identity-box, #urlbar-reload-button, #urlbar-stop-button, #urlbar-go-button,
     #PanelUI-button, #bookmarks-menu-button, #downloads-button, #home-button, #stylish-toolbar-button, #abp-toolbarbutton,
     #notification-popup-box, #new-tab-button, #private-browsing-indicator, #search-container, #nav-bar-overflow-button,
-    .tabs-newtab-button, /*.tab-close-button, .tab-close,*/ .tab-throbber, .tab-background-start, .tab-background-end,
-    #pocket-button, #loop-button, #social-share-button, #window-controls
-    /*#alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned])*/ { display: none !important; }
+    .tabs-newtab-button, .tab-close-button, .tab-close, .tab-throbber, .tab-background-start, .tab-background-end,
+    #pocket-button, #loop-button, #social-share-button, #window-controls, .urlbar-history-dropmarker, 
+    #alltabs-button, #tabview-button, .tab-icon-image, .tab-icon-image:not([pinned]), toolbarbutton { display: none !important; }
     
-    /* Close Button on Tabs. */
+    /* Close Button on Tabs.
     .tab-close-button, .tab-close {
         display: block !important;   
     }
     
-    /* Close button on tabs. */
+    /* Close button on tabs.
     .tab-close-button::before {
         content: "x" !important;
         color: #FF5964 !important;
-    }
+    }/**/
     
     * { box-sizing: border-box !important; }
     
     /* --- Comment out the section below to remove the newtab button --- */
-    /**/
+    /*
     .tabs-newtab-button { 
         display: block !important; 
         background: transparent !important; 
@@ -105,7 +105,7 @@
     
                 #urlbar {
                     border: none !important; 
-                    padding: 0 8px 0 45px !important;
+                    padding: 0 8px 0 8px !important;
                     background: var(--url-background) !important; 
                     color: var(--url-color) !important;
                     font-family: var(--url-fonts) !important; 
@@ -122,7 +122,7 @@
     
     
     /* --- Uncomment the section below to enable the back/forward buttons [EXPERIMENTAL] (Requires url-bar) --- */
-    
+    /*
     #back-button, #forward-button { display: block !important; }
     #back-button::before, #forward-button::before {
         display: inline-block !important; position: absolute !important;
@@ -142,7 +142,7 @@
         content: ">" !important;
         left: calc(var(--url-height) + 8px) !important; 
         color: var(--fg-light);
-    }
+    }*/
     
     /* Padding on the URL bar. Uncomment if wanting to use --url-text-align left.*/
     /*
@@ -162,6 +162,12 @@
     /**/
     
     /* TABS */
+    
+    .tabbrowser-arrowscrollbox > .arrowscrollbox-scrollbox {
+       padding-inline-end: 5px !important;
+       padding-inline-start: 5px !important;
+    }
+    
     .tabbrowser-tab[fadein]:not([pinned]) { min-width: 100px !important; max-width: /*180px*/ 100% !important; }
     tab {
         font-family: var(--tab-fonts) !important;
@@ -352,7 +358,7 @@
     scrollbar[orient='vertical'] > slider { background: #FFFFFA !important; max-width: 100% !important; }
     scrollbar[orient='vertical'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #161916 !important; border: 0 !important; width: 100% !important;
+        background: #211716 !important; border: 0 !important; width: 100% !important;
     }
     
     /* #FFFFFF is the background color for the horizontal scrollbar.*/
@@ -360,7 +366,7 @@
     scrollbar[orient='horizontal'] > slider { background: #FFFFFA !important; max-height: 100% !important; }
     scrollbar[orient='horizontal'] > slider > thumb {
         -moz-appearance: none !important;
-        background: #161916 !important; border: 0 !important; height: 100% !important;
+        background: #211716 !important; border: 0 !important; height: 100% !important;
     }
     
     scrollbar > scrollbarbutton { -moz-appearance: none !important; border: none !important; background: none !important; }
@@ -400,4 +406,5 @@ tabbrowser tabpanels, #appcontent > #content { background: var(--bg-light) !impo
     input, textarea { color: #222628 !important; -moz-appearance: none !important; }
 }
 /**/
+
 
