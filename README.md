@@ -6,6 +6,8 @@ Name: Amazing Sunset
 
 ![Desktop Screenshot](http://i.imgur.com/rCw5yru.png)
 
+[More Screenshots](http://imgur.com/a/MaQXy).
+
 To see the changes between configurations, see the CHANGELOG.
 
 For the most recent changes, see the [working branch](https://github.com/clyde80/i3-configuruation/tree/working).
