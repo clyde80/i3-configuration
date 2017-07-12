@@ -6,7 +6,7 @@ Name: Amazing Sunset
 
 ![Desktop Screenshot](http://i.imgur.com/rCw5yru.png)
 
-![More Screenshots](http://imgur.com/a/MaQXy).
+[More Screenshots](http://imgur.com/a/MaQXy).
 
 To see the changes between configurations, see the CHANGELOG.
 
