@@ -2,11 +2,9 @@
 Dotfiles
 
 ## Current Configuration
-Name: Minimal Red
+Name: Amazing Sunset
 
 ![Desktop Screenshot](http://i.imgur.com/rCw5yru.png)
-
-[More Pictures](https://imgur.com/a/ykdM9)
 
 To see the changes between configurations, see the CHANGELOG.
 
