@@ -4,7 +4,7 @@ Dotfiles
 ## Current Configuration
 Name: Minimal Red
 
-![Desktop Screenshot](http://i.imgur.com/EFYrwfr.png)
+![Desktop Screenshot](http://i.imgur.com/rCw5yru.png)
 
 [More Pictures](https://imgur.com/a/ykdM9)
 
